@@ -10,12 +10,19 @@ This package provides necessary code to get your social sign in using Twitter wo
 - [Inspiration](#inspiration)
 
 ## Prerequisites
+
+Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you can obtain API key and secret, note:
+
+ - Remember to set a Callback Url, whatever will work
+ - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
+ 
 Since Twitter Kit can only be used via [Fabric](https://twitter.com/fabric), make sure you install Fabric properly:
 
  - *iOS* install Fabric according to this guide: https://docs.fabric.io/ios/fabric/getting-started.html
  - *Android* install Fabric according to this guide: https://docs.fabric.io/android/fabric/migration/android-studio.html
 
 Fabric will use your Twitter accounts to generate API keys and tokens therefore you have to redo this every time you change your Twitter credentials.
+
 
 ## Setup
 
