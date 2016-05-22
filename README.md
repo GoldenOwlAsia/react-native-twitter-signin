@@ -23,7 +23,7 @@ Firstly, install the npm package:
 
     npm install react-native-twitter-signin --save
 
-### iOS
+#### iOS
 
 It is pretty simple to install it for iOS:
 
@@ -31,7 +31,7 @@ It is pretty simple to install it for iOS:
   - In `Libraries` choose `Add files...` and add the 2 files `ios/TwitterSignin/TwitterSignin.h` and `ios/TwitterSignin/TwitterSignin.m` in your `node_modules/react-native-twitter-signin` folder
   - Rebuild your project to make sure no build error
 
-### Android
+#### Android
 
 On Android, it will use `Gradle` so all you need to do is to point to the correct project location:
 
@@ -97,7 +97,7 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
         };
 ```
 
-## todo
+## Todo
 The code was extracted from my project so it satisfies my current need, if you need extra functions, feel free to submit to issue list or fork it.
 
 ## Copyright and license
@@ -105,5 +105,6 @@ The code was extracted from my project so it satisfies my current need, if you n
 Code and documentation copyright 2016 Justin Nguyen. Code released under [the MIT license](https://github.com/GoldenOwlAsia/react-native-twitter-login/blob/master/LICENSE).
 
 ## Inspiration
-[react-native]: http://facebook.github.io/react-native/
-[react-native-facebook-login]: https://github.com/magus/react-native-facebook-login
+
+[react-native](http://facebook.github.io/react-native/)
+[react-native-facebook-login](https://github.com/magus/react-native-facebook-login)
