@@ -1,6 +1,19 @@
 {
   "name": "react-native-twitter-signin",
+  "description": "Social Signin with Twitter",
   "version": "0.0.1",
-  "private": true,
-  "dependencies": {}
+  "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
+  "repository": "git@github.com:GoldenOwlAsia/react-native-twitter-signin.git",
+  "keywords": [
+    "twitter",
+    "signin",
+    "social signin",
+    "authentication",
+    "react native"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {},
+  "license": "MIT"
 }
