@@ -15,7 +15,7 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
 
  - Remember to set a Callback Url, whatever will work
  - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
- 
+
 Since Twitter Kit can only be used via [Fabric](https://twitter.com/fabric), make sure you install Fabric properly:
 
  - *iOS* install Fabric according to this guide: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -109,7 +109,7 @@ The code was extracted from my project so it satisfies my current need, if you n
 
 ## Copyright and license
 
-Code and documentation copyright 2016 Justin Nguyen. Code released under [the MIT license](https://github.com/GoldenOwlAsia/react-native-twitter-login/blob/master/LICENSE).
+Code and documentation copyright 2016 Justin Nguyen. Code released under [the MIT license](https://github.com/GoldenOwlAsia/react-native-twitter-signin/blob/master/LICENSE).
 
 ## Inspiration
 
