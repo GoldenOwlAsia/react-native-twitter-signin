@@ -1,36 +1,35 @@
-//
-//  TwitterSigninModule.java
-//  TwitterSignin
-//
-//  Created by Justin Nguyen on 22/5/16.
-//  Copyright © 2016 Golden Owl. All rights reserved.
-//
-
 package com.goldenowl.twittersignin;
 
 import android.content.Intent;
 import android.util.Log;
 
 import com.facebook.react.bridge.ActivityEventListener;
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
 
-import com.facebook.react.bridge.WritableNativeMap;
+import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.core.TwitterAuthToken;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+import io.fabric.sdk.android.Fabric;
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
-    public TwitterLoginButton loginButton;
+    private final int RESULT_CANCELED = 0;
+    TwitterAuthClient twitterAuthClient;
 
     public TwitterSigninModule(ReactApplicationContext reactContext) {
         super(reactContext);
+
+        reactContext.addActivityEventListener(this);
     }
 
     @Override
@@ -40,33 +39,37 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     @ReactMethod
     public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
-        Log.i(">>>", "Login ");
-        loginButton = new TwitterLoginButton(getCurrentActivity());
-        loginButton.setCallback(new com.twitter.sdk.android.core.Callback<TwitterSession>() {
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
+        Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+        twitterAuthClient = new TwitterAuthClient();
+
+        Twitter.logIn(getCurrentActivity(), new com.twitter.sdk.android.core.Callback<TwitterSession>() {
             @Override
-            public void success(Result<TwitterSession> sessionResult) {
-                Log.d(">>>", "callback result");
-                WritableMap result = new WritableNativeMap();
-                result.putString("authToken", sessionResult.data.getAuthToken().token);
-                result.putString("authTokenSecret",sessionResult.data.getAuthToken().secret);
-                result.putString("userID", sessionResult.data.getUserId()+"");
-                result.putString("userName", sessionResult.data.getUserName());
-                callback.invoke(null, result);
+            public void success(Result<TwitterSession> result) {
+                final TwitterSession session = result.data;
+                TwitterAuthToken twitterAuthToken = session.getAuthToken();
+                final WritableMap map = Arguments.createMap();
+                map.putString("authToken", twitterAuthToken.token);
+                map.putString("authTokenSecret", twitterAuthToken.secret);
+                map.putString("name", session.getUserName());
+                map.putString("userID", Long.toString(session.getUserId()));
+                map.putString("userName", session.getUserName());
+                callback.invoke(null, map);
             }
 
             @Override
             public void failure(TwitterException exception) {
-                Log.d(">>>", "callback error");
+                Log.d("failure", exception.toString());
                 callback.invoke(exception.toString(), null);
             }
         });
-        loginButton.performClick();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (loginButton != null) {
-            loginButton.onActivityResult(requestCode, resultCode, data);
+        if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
+            boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
+            twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
