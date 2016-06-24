@@ -16,6 +16,7 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
 
@@ -26,6 +27,9 @@ import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+
+import javax.annotation.Nullable;
+
 import io.fabric.sdk.android.Fabric;
 
 
@@ -46,7 +50,10 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @ReactMethod
-    public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
+    public void logIn(ReadableMap options, final Callback callback) {
+        final boolean getEmail = options.isNull("requestEmail") ? options.getBoolean("requestEmail") : false;
+        String consumerKey = options.getString("consumerKey");
+        String consumerSecret = options.getString("consumerSecret");
         TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
         Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
         twitterAuthClient = new TwitterAuthClient();
@@ -62,19 +69,23 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                 map.putString("name", session.getUserName());
                 map.putString("userID", Long.toString(session.getUserId()));
                 map.putString("userName", session.getUserName());
-                twitterAuthClient.requestEmail(session, new com.twitter.sdk.android.core.Callback<String>() {
-                    @Override
-                    public void success(Result<String> result) {
-                        map.putString("email", result.data);
-                        callback.invoke(null, map);
-                    }
+                if (getEmail) {
+                    twitterAuthClient.requestEmail(session, new com.twitter.sdk.android.core.Callback<String>() {
+                        @Override
+                        public void success(Result<String> result) {
+                            map.putString("email", result.data);
+                            callback.invoke(null, map);
+                        }
 
-                    @Override
-                    public void failure(TwitterException exception) {
-                        // invoke callback with no email key
-                        callback.invoke(null, map);
-                    }
-                });
+                        @Override
+                        public void failure(TwitterException exception) {
+                            // invoke callback with no email key
+                            callback.invoke(null, map);
+                        }
+                    });
+                } else {
+                    callback.invoke(null, map);
+                }
             }
 
             @Override
