@@ -6,9 +6,11 @@
 //  Copyright © 2016 Golden Owl. All rights reserved.
 //
 #import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/Twitter.h>
 #import "RCTEventDispatcher.h"
+#import "RCTConvert.h"
 #import "TwitterSignin.h"
+#import <RCTUtils.h>
 
 @implementation TwitterSignin
 
@@ -38,9 +40,9 @@ RCT_EXPORT_METHOD(logIn:(NSDictionary *)options callback:(RCTResponseSenderBlock
             callback(@[body, [NSNull null]]);
         } else {
             // Handle choosing if we want to fectch email
-            NSDictionary *parameters = @{@"include_email": @"false", @"skip_status": @"true"}
+          NSDictionary *parameters = @{@"include_email": @"false", @"skip_status": @"true"};
             if (getEmail) {
-              *parameters = @{@"include_email": @"true", @"skip_status": @"true"}
+              parameters = @{@"include_email": @"true", @"skip_status": @"true"};
             }
 
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
