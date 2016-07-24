@@ -106,6 +106,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     @Override
     public void onNewIntent(Intent intent) {
-      super.onNewIntent(intent);
+      // Do nothing
     }
 }
