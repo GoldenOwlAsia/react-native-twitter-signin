@@ -18,6 +18,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Promise;
 
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Result;
@@ -46,7 +47,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @ReactMethod
-    public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
+    public void logIn(String consumerKey, String consumerSecret, final Promise promise) {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
         Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
         twitterAuthClient = new TwitterAuthClient();
@@ -66,25 +67,27 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                     @Override
                     public void success(Result<String> result) {
                         map.putString("email", result.data);
-                        callback.invoke(null, map);
+                        promise.resolve(map);
                     }
 
                     @Override
                     public void failure(TwitterException exception) {
-                        // invoke callback with no email key
-                        callback.invoke(null, map);
+                        map.putString("email", "COULD_NOT_FETCH");
+                        promise.resolve(map);
                     }
                 });
             }
 
             @Override
             public void failure(TwitterException exception) {
-                Log.d("failure", exception.toString());
-                callback.invoke(exception, null);
+                promise.reject("USER_CANCELLED", exception.getMessage(), exception);
             }
         });
     }
 
+    @Override
+    public void onNewIntent(Intent intent) {}
+    
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
