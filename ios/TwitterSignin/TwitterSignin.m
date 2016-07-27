@@ -19,7 +19,9 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret callback:(RCTResponseSenderBlock)callback)
+
+RCT_EXPORT_METHOD(logIn: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
     [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
     [Fabric with:@[[Twitter class]]];
@@ -31,7 +33,7 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
                                    @"code":@(error.code),
                                    @"userInfo":[error.userInfo description]
                                    };
-            callback(@[body, [NSNull null]]);
+            reject(@[body, [NSNull null]]);
         } else {
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
             NSURLRequest *request = [client URLRequestWithMethod:@"GET"
@@ -52,7 +54,7 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
                                        @"userID":session.userID,
                                        @"email": email,
                                        @"userName":session.userName};
-                callback(@[[NSNull null], body]);
+              resolve(@[[NSNull null], body]);
             }];
         }
     }];
