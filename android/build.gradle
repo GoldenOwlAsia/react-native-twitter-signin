@@ -6,7 +6,6 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.+'
         classpath 'io.fabric.tools:gradle:1.+'
     }
 }
@@ -30,13 +29,13 @@ android {
 }
 
 repositories {
-    mavenCentral()
     maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
-    compile('com.twitter.sdk.android:twitter:1.13.1@aar') {
-        transitive = true
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile('com.twitter.sdk.android:twitter:1.14.1@aar') {
+        transitive = true;
     }
 }
