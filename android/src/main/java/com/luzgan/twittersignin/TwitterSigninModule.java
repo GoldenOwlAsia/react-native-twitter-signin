@@ -2,11 +2,11 @@
 //  TwitterSigninModule.java
 //  TwitterSignin
 //
-//  Created by Justin Nguyen on 22/5/16.
-//  Copyright © 2016 Golden Owl. All rights reserved.
+//  Created by Lukasz Holc on 11/08/16.
+//  Copyright © 2016 Lukasz Holc. All rights reserved.
 //
 
-package com.goldenowl.twittersignin;
+package com.luzgan.twittersignin;
 
 import android.content.Intent;
 import android.util.Log;
@@ -14,6 +14,7 @@ import android.util.Log;
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
@@ -46,7 +47,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @ReactMethod
-    public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
+    public void logIn(String consumerKey, String consumerSecret,  final Promise promise) {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
         Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
         twitterAuthClient = new TwitterAuthClient();
@@ -66,21 +67,20 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                     @Override
                     public void success(Result<String> result) {
                         map.putString("email", result.data);
-                        callback.invoke(null, map);
+                        promise.resolve(map);
                     }
 
                     @Override
                     public void failure(TwitterException exception) {
                         // invoke callback with no email key
-                        callback.invoke(null, map);
+                        promise.reject(exception);
                     }
                 });
             }
 
             @Override
             public void failure(TwitterException exception) {
-                Log.d("failure", exception.toString());
-                callback.invoke(exception, null);
+                promise.reject(exception);
             }
         });
     }

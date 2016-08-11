@@ -1,12 +1,12 @@
 //
-//  TwitterSigninPackage.java
+//  TwitterSigninModule.java
 //  TwitterSignin
 //
-//  Created by Justin Nguyen on 22/5/16.
-//  Copyright © 2016 Golden Owl. All rights reserved.
+//  Created by Lukasz Holc on 11/08/16.
+//  Copyright © 2016 Lukasz Holc. All rights reserved.
 //
 
-package com.goldenowl.twittersignin;
+package com.luzgan.twittersignin;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
