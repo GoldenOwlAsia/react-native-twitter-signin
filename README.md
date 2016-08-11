@@ -4,7 +4,7 @@ Fork of https://github.com/GoldenOwlAsia/react-native-twitter-signin
 
 Forked to add promise support and exceptions support. As well as making it working for RN0.29+.
 
-Also - in opposition to GoldenOwl twitter signin, this plugin will fail if email is not available to you. Note that this is not standard, you can login without email - I've made it this way to support our app.
+Also - in opposition to GoldenOwl twitter signin, this plugin have an option to fail if email is not available to you. Note that this is not standard, you can login without email - I've made it this way to support our app.
 
 ## Table of contents
 - [Prerequisites](#prerequisites)
@@ -66,7 +66,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
         protected List<ReactPackage> getPackages() {
            return Arrays.<ReactPackage>asList(
              new MainReactPackage(),
-             new TwitterSigninPackage() //Add that
+             new TwitterSigninPackage(false) //Add that. If you want to see an error on empty email do new TwitterSigninPackage(true)
            );
          }
 ```
