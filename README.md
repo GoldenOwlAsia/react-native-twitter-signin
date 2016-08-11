@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
 
-For of https://github.com/GoldenOwlAsia/react-native-twitter-signin
+Fork of https://github.com/GoldenOwlAsia/react-native-twitter-signin
 
 # React Native : Twitter Signin
 This package provides necessary code to get your social sign in using Twitter works with least pain possible.
