@@ -30,7 +30,6 @@ RCT_EXPORT_METHOD(init: (NSString *)consumerKey consumerSecret:(NSString *)consu
 RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  
     [[Twitter sharedInstance] logInWithMethods:TWTRLoginMethodWebBased completion:^(TWTRSession *session, NSError *error) {
         if (error) {
             NSDictionary *body = @{
@@ -58,6 +57,21 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
             }];
         }
     }];
+}
+
+RCT_EXPORT_METHOD(logOut:(BOOL *)forceClearCookies callback:(RCTResponseSenderBlock)callback)
+{
+  
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"];
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+    for (NSHTTPCookie *cookie in cookies)
+    {
+      NSLog(@"TWITTER LOGUT - clearing cookie");
+      [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+    }
+    
+    callback(@[[NSNull null], @"true"]);
 }
 
 RCT_EXPORT_METHOD(showTweetComposerWithSharingContent:(id)json callback:(RCTResponseSenderBlock)jsCallback) {
