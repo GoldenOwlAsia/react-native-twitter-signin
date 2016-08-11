@@ -32,12 +32,13 @@ import io.fabric.sdk.android.Fabric;
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
+    private Boolean errorOnEmptyEmail;
     private final int RESULT_CANCELED = 0;
     TwitterAuthClient twitterAuthClient;
 
-    public TwitterSigninModule(ReactApplicationContext reactContext) {
+    public TwitterSigninModule(ReactApplicationContext reactContext, Boolean errorOnEmptyEmail) {
         super(reactContext);
-
+        this.errorOnEmptyEmail = errorOnEmptyEmail;
         reactContext.addActivityEventListener(this);
     }
 
@@ -73,7 +74,11 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                     @Override
                     public void failure(TwitterException exception) {
                         // invoke callback with no email key
-                        promise.reject(exception);
+                        if (errorOnEmptyEmail) {
+                            promise.reject(exception);
+                        } else {
+                            promise.resolve(map);
+                        }
                     }
                 });
             }

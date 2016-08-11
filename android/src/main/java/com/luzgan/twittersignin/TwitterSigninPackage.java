@@ -20,9 +20,16 @@ import java.util.List;
 
 public class TwitterSigninPackage implements ReactPackage {
 
+    Boolean errorOnEmptyEmail;
+
+    public TwitterSigninPackage(Boolean errorOnEmptyEmail) {
+        super();
+        this.errorOnEmptyEmail = errorOnEmptyEmail;
+    }
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new TwitterSigninModule(reactContext));
+        return Arrays.<NativeModule>asList(new TwitterSigninModule(reactContext, errorOnEmptyEmail));
     }
 
     @Override
