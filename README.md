@@ -33,7 +33,7 @@ Firstly, install the npm package:
 It is pretty simple to install it for iOS:
 
   - Open you Xcode IDE
-  - In `Libraries` choose `Add files...` and add the 2 files `ios/TwitterSignin/TwitterSignin.h` and `ios/TwitterSignin/TwitterSignin.m` in your `node_modules/react-native-twitter-signin` folder
+  - In `Libraries` choose `Add files...` and add the 2 files `ios/TwitterSignin/TwitterSignin.h` and `ios/TwitterSignin/TwitterSignin.m` in your `node_modules/react-native-luzgan-twitter-signin` folder
   - Rebuild your project to make sure no build error
 
 #### Android
