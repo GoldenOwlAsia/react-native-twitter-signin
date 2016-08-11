@@ -1,22 +1,16 @@
-[![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
+[![npm version](https://badge.fury.io/js/react-native-luzgan-twitter-signin.svg)](https://badge.fury.io/js/react-native-luzgan-twitter-signin)
 
-# React Native : Twitter Signin
-This package provides necessary code to get your social sign in using Twitter works with least pain possible.
+Fork of https://github.com/GoldenOwlAsia/react-native-twitter-signin
+
+Forked to add promise support and exceptions support. As well as making it working for RN0.29+.
 
 ## Table of contents
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Todo](#todo)
 - [Copyright and license](#copyright-and-license)
-- [Inspiration](#inspiration)
 
 ## Prerequisites
-
-Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you can obtain API key and secret, note:
-
- - Remember to set a Callback Url, whatever will work
- - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
 Since Twitter Kit can only be used via [Fabric](https://twitter.com/fabric), make sure you install Fabric properly:
 
@@ -30,7 +24,7 @@ Fabric will use your Twitter accounts to generate API keys and tokens therefore 
 
 Firstly, install the npm package:
 
-    npm install react-native-twitter-signin --save
+    npm install react-native-luzgan-twitter-signin --save
 
 #### iOS
 
@@ -46,19 +40,22 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
 
   - In your `${project_dir}/android/settings.gradle` add this:
 
-        include ':react-native-twitter-signin'
-        project(':react-native-twitter-signin').projectDir = new File(rootProject.projectDir,'../node_modules/react-native-twitter-signin/android')
+        include ':react-native-luzgan-twitter-signin'
+        project(':react-native-luzgan-twitter-signin').projectDir = new File(rootProject.projectDir,'../node_modules/react-native-luzgan-twitter-signin/android')
   - In your `${project_dir}/android/app/build.gradle` add this:
 
         depedencies {
            ...
-           compile project(':react-native-twitter-signin')
+           compile project(':react-native-luzgan-twitter-signin')
            ...
         }
-  - In you `MainActivity.java` makes use of the package as following:
+  - RN0.29+ In you `MainApplication.java` makes use of the package as following:
 
 ```java
-        
+        [...]
+        //add in the imports
+        import com.luzgan.twittersignin.TwitterSigninPackage;
+        [...]
         /**
         * A list of packages used by the app. If the app uses additional views
         * or modules besides the default ones, add more packages here.
@@ -67,11 +64,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
         protected List<ReactPackage> getPackages() {
            return Arrays.<ReactPackage>asList(
              new MainReactPackage(),
-             new FacebookLoginPackage(),
-             new TwitterSigninPackage(),
-             new RNGoogleSigninPackage(this),
-             new VectorIconsPackage(),
-             new RNSvgPackage()
+             new TwitterSigninPackage() //Add that
            );
          }
 ```
@@ -91,11 +84,11 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
         const { TwitterSignin } = NativeModules;
         class TwitterButton extends SocialButton {
           _twitterSignIn() {
-            TwitterSignin.logIn(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET, (error, loginData) => {
-              if (!error) {
-              } else {
-                Alert.alert('Invalid login', 'Unable to login');
-              }
+            TwitterSignin.logIn({TWITTER_COMSUMER_KEY}, {TWITTER_CONSUMER_SECRET})
+            .then((data) => {
+             //use data
+            }).catch((err) => {
+             //handle err
             });
           }
           render() {
@@ -106,14 +99,7 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
         };
 ```
 
-## Todo
-The code was extracted from my project so it satisfies my current need, if you need extra functions, feel free to submit to issue list or fork it.
 
 ## Copyright and license
 
-Code and documentation copyright 2016 Justin Nguyen. Code released under [the MIT license](https://github.com/GoldenOwlAsia/react-native-twitter-signin/blob/master/LICENSE).
-
-## Inspiration
-
-[react-native](http://facebook.github.io/react-native/)
-[react-native-facebook-login](https://github.com/magus/react-native-facebook-login)
+Code and documentation copyright 2016 Lukasz Holc. Code released under [the MIT license](https://github.com/Luzgan/react-native-twitter-signin/blob/master/LICENSE).
