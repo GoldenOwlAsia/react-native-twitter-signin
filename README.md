@@ -102,4 +102,4 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
 
 ## Copyright and license
 
-Code and documentation copyright 2016 Justin Nguyen. Code released under [the MIT license](https://github.com/Luzgan/react-native-twitter-signin/blob/master/LICENSE).
+Code and documentation copyright 2016 Lukasz Holc. Code released under [the MIT license](https://github.com/Luzgan/react-native-twitter-signin/blob/master/LICENSE).
