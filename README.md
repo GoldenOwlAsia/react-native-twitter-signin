@@ -4,6 +4,8 @@ Fork of https://github.com/GoldenOwlAsia/react-native-twitter-signin
 
 Forked to add promise support and exceptions support. As well as making it working for RN0.29+.
 
+Also - in opposition to GoldenOwl twitter signin, this plugin will fail if email is not available to you. Note that this is not standard, you can login without email - I've made it this way to support our app.
+
 ## Table of contents
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
