@@ -114,6 +114,42 @@ RCT_EXPORT_METHOD(getFriendsListWithCallback:(RCTResponseSenderBlock)jsCallback)
     }];
 };
 
+RCT_EXPORT_METHOD(getFollowersListWithCallback:(RCTResponseSenderBlock)jsCallback) {
+    NSLog(@"RCTTwitterFollowersList#get");
+    if (!jsCallback) {
+        NSLog(@"RCTTwitterFollowersList#get-nocallback");
+        return;
+    }
+    
+    TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
+    NSURLRequest *request = [client URLRequestWithMethod:@"GET"
+                                                     URL:@"https://api.twitter.com/1.1/followers/list.json"
+                                              parameters:@{@"count": @"200", @"cursor": @"-1"}
+                                                   error:nil];
+    [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"RCTTwitterFollowersList#get-connectionerror:%@", connectionError);
+            jsCallback(@[[self _NSError2JS:connectionError], [NSNull null]]);
+        }
+        else if (!data) {
+            NSLog(@"RCTTwitterFollowersList#get-nodata");
+            jsCallback(@[@"nodata", [NSNull null]]);
+        }
+        else {
+            NSError *jsonError;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            if (jsonError) {
+                NSLog(@"RCTTwitterFollowersList#get-JSONerror:%@", jsonError);
+                jsCallback(@[[self _NSError2JS:jsonError], [NSNull null]]);
+            }
+            else {
+                NSLog(@"RCTTwitterFollowersList#get-success");
+                jsCallback(@[[NSNull null], json[@"users"]]);
+            }
+        }
+    }];
+};
+
 #pragma mark - helpers
 
 - (NSDictionary *)_NSError2JS:(NSError *)error {
