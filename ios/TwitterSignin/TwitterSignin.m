@@ -25,7 +25,7 @@ RCT_EXPORT_METHOD(logIn:(NSDictionary *)options callback:(RCTResponseSenderBlock
 {
     NSString *consumerKey = [RCTConvert NSString:options[@"consumerKey"]];
     NSString *consumerSecret = [RCTConvert NSString:options[@"consumerSecret"]];
-    BOOL *getEmail = [RCTConvert BOOL:options[@"requestEmail"]];
+    BOOL getEmail = [RCTConvert BOOL:options[@"requestEmail"]];
 
     [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
     [Fabric with:@[[Twitter class]]];
@@ -57,8 +57,6 @@ RCT_EXPORT_METHOD(logIn:(NSDictionary *)options callback:(RCTResponseSenderBlock
                 if (json[@"email"]) {
                     email = json[@"email"];
                 }
-                NSLog(@"email here");
-                NSLog(email);
                 NSDictionary *body = @{@"authToken": session.authToken,
                                        @"authTokenSecret": session.authTokenSecret,
                                        @"userID":session.userID,
