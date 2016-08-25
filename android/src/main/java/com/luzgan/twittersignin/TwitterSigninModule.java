@@ -97,4 +97,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
     }
+    
+    public void onNewIntent(Intent intent) { }
+
 }
