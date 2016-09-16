@@ -33,7 +33,7 @@ RCT_EXPORT_METHOD(logIn: (NSString *)consumerKey consumerSecret:(NSString *)cons
                                    @"code":@(error.code),
                                    @"userInfo":[error.userInfo description]
                                    };
-            reject(@[body, [NSNull null]]);
+            reject(@"Error", @"Twitter signin error", body);
         } else {
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
             NSURLRequest *request = [client URLRequestWithMethod:@"GET"
