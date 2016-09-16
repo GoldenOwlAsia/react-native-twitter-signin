@@ -10,6 +10,7 @@ package com.goldenowl.twittersignin;
 
 import android.content.Intent;
 import android.util.Log;
+import android.app.Activity;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -28,6 +29,7 @@ import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 import io.fabric.sdk.android.Fabric;
+
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -87,9 +89,9 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     @Override
     public void onNewIntent(Intent intent) {}
-    
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity currentActivity, int requestCode, int resultCode, Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
