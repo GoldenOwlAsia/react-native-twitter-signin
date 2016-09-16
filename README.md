@@ -58,7 +58,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
   - In you `MainActivity.java` makes use of the package as following:
 
 ```java
-        
+
         /**
         * A list of packages used by the app. If the app uses additional views
         * or modules besides the default ones, add more packages here.
@@ -91,11 +91,10 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
         const { TwitterSignin } = NativeModules;
         class TwitterButton extends SocialButton {
           _twitterSignIn() {
-            TwitterSignin.logIn(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET, (error, loginData) => {
-              if (!error) {
-              } else {
-                Alert.alert('Invalid login', 'Unable to login');
-              }
+            TwitterSignin.logIn(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET).then((loginData)=>{
+              Alert.alert('Success', JSON.stringify(loginData));
+            }).catch((error)=>{
+              Alert.alert('Error', JSON.stringify(error));
             });
           }
           render() {
