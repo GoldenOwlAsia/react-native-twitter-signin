@@ -10,6 +10,7 @@ package com.luzgan.twittersignin;
 
 import android.content.Intent;
 import android.util.Log;
+import android.app.Activity;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -91,7 +92,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
