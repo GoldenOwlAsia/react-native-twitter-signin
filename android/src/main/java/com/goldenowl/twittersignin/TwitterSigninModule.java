@@ -46,12 +46,14 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
 
-    @ReactMethod
+   @ReactMethod
     public void init(String consumerKey, String consumerSecret, Promise promise) {
       TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
       Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
-      promise.resolve();
+      WritableMap map = Arguments.createMap();
+      promise.resolve(map);
     }
+
 
     @ReactMethod
     public void logIn(final Promise promise) {
