@@ -84,7 +84,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
             @Override
             public void failure(TwitterException exception) {
                 Log.d("failure", exception.toString());
-                callback.invoke(exception, null);
+                callback.invoke(exception.toString(), null);
             }
         });
     }
