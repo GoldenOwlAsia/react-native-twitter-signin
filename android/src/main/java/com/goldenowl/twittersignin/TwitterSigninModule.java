@@ -10,6 +10,7 @@ package com.goldenowl.twittersignin;
 
 import android.content.Intent;
 import android.util.Log;
+import android.app.Activity;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -47,8 +48,8 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     @ReactMethod
     public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
-        Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+        //TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
+        //Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
         twitterAuthClient = new TwitterAuthClient();
 
         Twitter.logIn(getCurrentActivity(), new com.twitter.sdk.android.core.Callback<TwitterSession>() {
@@ -62,6 +63,8 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                 map.putString("name", session.getUserName());
                 map.putString("userID", Long.toString(session.getUserId()));
                 map.putString("userName", session.getUserName());
+                callback.invoke(null, map);
+                /*
                 twitterAuthClient.requestEmail(session, new com.twitter.sdk.android.core.Callback<String>() {
                     @Override
                     public void success(Result<String> result) {
@@ -75,6 +78,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                         callback.invoke(null, map);
                     }
                 });
+                */
             }
 
             @Override
@@ -86,10 +90,13 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, final int requestCode, final int resultCode, final Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
     }
+    
+    @Override
+    public void onNewIntent(Intent intent) {}
 }
