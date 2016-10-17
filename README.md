@@ -91,11 +91,14 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
         const { TwitterSignin } = NativeModules;
         class TwitterButton extends SocialButton {
           _twitterSignIn() {
-            TwitterSignin.logIn(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET).then((loginData)=>{
-              Alert.alert('Success', JSON.stringify(loginData));
-            }).catch((error)=>{
-              Alert.alert('Error', JSON.stringify(error));
-            });
+              TwitterSignin.init(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET).then(() => {
+               return TwitterSignin.logIn();
+              })
+              .then((loginData)=>{
+                Alert.alert('Success', JSON.stringify(loginData));
+              }).catch((error)=>{
+                Alert.alert('Error', JSON.stringify(error));
+              });
           }
           render() {
             return (
