@@ -11,6 +11,7 @@ package com.goldenowl.twittersignin;
 import android.content.Intent;
 import android.util.Log;
 import android.app.Activity;
+import android.util.Pair;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -21,12 +22,18 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
 
 import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.TwitterCore;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import io.fabric.sdk.android.Fabric;
 
 
@@ -89,6 +96,72 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
         });
     }
 
+    @ReactMethod
+    public void logOut(final Callback callback) {
+
+      // Desperately wnating to logout from
+      // fabric's twitter session..
+
+
+      try {
+        TwitterSession ts = TwitterCore
+          .getInstance()
+          .getSessionManager()
+          .getActiveSession();
+
+        if(ts != null) {
+          if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
+            CookieManager.getInstance().removeAllCookies(null);
+            CookieManager.getInstance().flush();
+          } else {
+            CookieSyncManager cookieSyncMngr=CookieSyncManager.createInstance(context);
+            cookieSyncMngr.startSync();
+            CookieManager cookieManager=CookieManager.getInstance();
+            cookieManager.removeAllCookie();
+            cookieManager.removeSessionCookie();
+            cookieSyncMngr.stopSync();
+            cookieSyncMngr.sync();
+          }
+        }
+
+      } catch(Exception e) {
+
+      }
+
+      try {
+          Map<Long, TwitterSession> sessions = Twitter.getSessionManager().getSessionMap();
+          System.out.println("TWITTER SEESIONS " + +sessions.size());
+          Set<Long> sessids = sessions.keySet();
+          for (Long sessid : sessids) {
+              System.out.println("TWITTER SESSION CLEARING " + sessid);
+              Twitter.getSessionManager().clearSession(sessid);
+          }
+      } catch(Exception e) {
+          System.out.println("TWITTER: logout # clear active session");
+          e.printStackTrace();
+      }
+
+      try {
+          System.out.println("TWITTER CLEARING ACTIVE SESSION");
+        Twitter
+          .getSessionManager()
+          .clearActiveSession();
+      } catch (Exception e) {
+          System.out.println("TWITTER: logout # clear active session");
+          e.printStackTrace();
+      }
+
+      try {
+          System.out.println("TWITTER LOGGING OUT");
+        Twitter.logOut();
+      } catch (Exception e) {
+        System.out.println("TWITTER: logout # logout");
+        e.printStackTrace();
+      }
+
+      callback.invoke(null, true);
+    }
+
     @Override
     public void onActivityResult(Activity activity, final int requestCode, final int resultCode, final Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
@@ -96,7 +169,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
     }
-    
+
     @Override
     public void onNewIntent(Intent intent) {}
 }
