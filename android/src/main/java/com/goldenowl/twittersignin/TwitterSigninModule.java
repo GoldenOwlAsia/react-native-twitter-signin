@@ -47,9 +47,10 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
 
     @ReactMethod
-    public void init(String consumerKey, String consumerSecret) {
+    public void init(String consumerKey, String consumerSecret, Promise promise) {
       TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
       Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+      promise.resolve();
     }
 
     @ReactMethod
