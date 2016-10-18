@@ -11,7 +11,8 @@ package com.goldenowl.twittersignin;
 import android.content.Intent;
 import android.util.Log;
 import android.app.Activity;
-import android.util.Pair;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -22,19 +23,15 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
 
 import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.TwitterCore;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.TwitterAuthToken;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import io.fabric.sdk.android.Fabric;
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -97,7 +94,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @ReactMethod
-    public void logOut(final Callback callback) {
+    public void logOut(boolean forceClearCookies, final Callback callback) {
 
       // Desperately wnating to logout from
       // fabric's twitter session..
@@ -109,12 +106,12 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
           .getSessionManager()
           .getActiveSession();
 
-        if(ts != null) {
+        if(forceClearCookies || ts != null) {
           if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
             CookieManager.getInstance().removeAllCookies(null);
             CookieManager.getInstance().flush();
           } else {
-            CookieSyncManager cookieSyncMngr=CookieSyncManager.createInstance(context);
+            CookieSyncManager cookieSyncMngr=CookieSyncManager.createInstance(getReactApplicationContext());
             cookieSyncMngr.startSync();
             CookieManager cookieManager=CookieManager.getInstance();
             cookieManager.removeAllCookie();
