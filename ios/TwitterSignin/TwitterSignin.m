@@ -19,13 +19,16 @@
 
 RCT_EXPORT_MODULE();
 
-
-RCT_EXPORT_METHOD(logIn: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret resolver:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(init: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+  [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
+  [Fabric with:@[[Twitter class]]];
+}
+RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-    [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
-    [Fabric with:@[[Twitter class]]];
-    
+  
     [[Twitter sharedInstance] logInWithMethods:TWTRLoginMethodWebBased completion:^(TWTRSession *session, NSError *error) {
         if (error) {
             NSDictionary *body = @{
@@ -48,13 +51,13 @@ RCT_EXPORT_METHOD(logIn: (NSString *)consumerKey consumerSecret:(NSString *)cons
                     email = json[@"email"];
                 }
                 NSLog(@"email here");
-                NSLog(email);
+                NSLog(@"%@", email);
                 NSDictionary *body = @{@"authToken": session.authToken,
                                        @"authTokenSecret": session.authTokenSecret,
                                        @"userID":session.userID,
                                        @"email": email,
                                        @"userName":session.userName};
-              resolve(@[[NSNull null], body]);
+              resolve(body);
             }];
         }
     }];
