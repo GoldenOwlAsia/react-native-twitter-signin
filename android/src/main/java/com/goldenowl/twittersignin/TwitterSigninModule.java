@@ -8,6 +8,7 @@
 
 package com.goldenowl.twittersignin;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
@@ -38,6 +39,11 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
         super(reactContext);
 
         reactContext.addActivityEventListener(this);
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+
     }
 
     @Override
@@ -86,7 +92,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
