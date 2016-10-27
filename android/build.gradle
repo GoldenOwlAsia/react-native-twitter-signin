@@ -30,6 +30,10 @@ android {
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$projectDir/../../react-native/android"
+    }
 }
 
 dependencies {
