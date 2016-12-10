@@ -48,6 +48,7 @@ import java.net.URL;
 import java.util.List;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -130,7 +131,8 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 		TwitterSession session = Twitter.getSessionManager().getActiveSession();
 		MyTwitterApiClient twitterApiClient = new MyTwitterApiClient(session);
 		FriendsService friendsService = twitterApiClient.getFriendsService();
-		friendsService.getFriends(session.getUserId(), 200, new com.twitter.sdk.android.core.Callback<Friends>() {
+		Call<Friends> call = friendsService.getFriends(session.getUserId(), 200);
+		call.enqueue(new com.twitter.sdk.android.core.Callback<Friends>() {
 			@Override
 			public void success(Result<Friends> result) {
 				callback.invoke(null, usersArrayToWritableArray(result.data.users));
@@ -141,7 +143,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 				callback.invoke(formatErrorMessage(exception), null);
 			}
 		});
-
 	}
 
 	@ReactMethod
