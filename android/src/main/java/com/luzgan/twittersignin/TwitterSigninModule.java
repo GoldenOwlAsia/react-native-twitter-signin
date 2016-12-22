@@ -40,11 +40,13 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     private Callback callback = null;
     //112 is the average ascii value for every letter in 'twitter'
     private static final int REQUEST_CODE = 112112;
+    private ReactApplicationContext reactContext;
 
     public TwitterSigninModule(ReactApplicationContext reactContext, Boolean errorOnEmptyEmail) {
         super(reactContext);
         this.errorOnEmptyEmail = errorOnEmptyEmail;
         reactContext.addActivityEventListener(this);
+        this.reactContext = reactContext;
     }
 
     @Override
