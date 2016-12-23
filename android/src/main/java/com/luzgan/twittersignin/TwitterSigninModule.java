@@ -8,9 +8,12 @@
 
 package com.luzgan.twittersignin;
 
+import java.io.File;
+
 import android.content.Intent;
 import android.util.Log;
 import android.app.Activity;
+import android.net.Uri;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -36,7 +39,7 @@ import io.fabric.sdk.android.Fabric;
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
     private Boolean errorOnEmptyEmail;
-    private final int RESULT_CANCELED = 0;
+    private static final int RESULT_CANCELED = 0;
     TwitterAuthClient twitterAuthClient;
     private Callback callback = null;
     //112 is the average ascii value for every letter in 'twitter'
@@ -104,8 +107,16 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
             this.callback = callback;
 
             String body = options.hasKey("body") ? options.getString("body") : "";
+            String image = options.hasKey("image") ? options.getString("image") : null;
 
             TweetComposer.Builder builder = new TweetComposer.Builder(reactContext).text(body);
+
+            if (image != null) {
+                File imageFile = new File(image);
+                Uri imageUri = Uri.fromFile(imageFile);
+                builder = builder.image(imageUri);
+            }
+
             final Intent intent = builder.createIntent();
             reactContext.startActivityForResult(intent, REQUEST_CODE, intent.getExtras());
 
