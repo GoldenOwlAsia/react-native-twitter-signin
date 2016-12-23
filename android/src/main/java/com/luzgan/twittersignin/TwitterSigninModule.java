@@ -8,9 +8,12 @@
 
 package com.luzgan.twittersignin;
 
+import java.io.File;
+
 import android.content.Intent;
 import android.util.Log;
 import android.app.Activity;
+import android.net.Uri;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
@@ -20,6 +23,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
 
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Result;
@@ -28,19 +32,25 @@ import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 import io.fabric.sdk.android.Fabric;
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
     private Boolean errorOnEmptyEmail;
-    private final int RESULT_CANCELED = 0;
+    private static final int RESULT_CANCELED = 0;
     TwitterAuthClient twitterAuthClient;
+    private Callback callback = null;
+    //112 is the average ascii value for every letter in 'twitter'
+    private static final int REQUEST_CODE = 112112;
+    private ReactApplicationContext reactContext;
 
     public TwitterSigninModule(ReactApplicationContext reactContext, Boolean errorOnEmptyEmail) {
         super(reactContext);
         this.errorOnEmptyEmail = errorOnEmptyEmail;
         reactContext.addActivityEventListener(this);
+        this.reactContext = reactContext;
     }
 
     @Override
@@ -91,14 +101,54 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
         });
     }
 
+    @ReactMethod
+    public void composeTweet(ReadableMap options, final Callback callback) {
+        try {
+            this.callback = callback;
+
+            String body = options.hasKey("body") ? options.getString("body") : "";
+            String image = options.hasKey("image") ? options.getString("image") : null;
+
+            TweetComposer.Builder builder = new TweetComposer.Builder(reactContext).text(body);
+
+            if (image != null) {
+                File imageFile = new File(image);
+                Uri imageUri = Uri.fromFile(imageFile);
+                builder = builder.image(imageUri);
+            }
+
+            final Intent intent = builder.createIntent();
+            reactContext.startActivityForResult(intent, REQUEST_CODE, intent.getExtras());
+
+        } catch (Exception e) {
+            //error!
+            sendCallback(false, false, true);
+            throw e;
+        }
+    }
+
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                sendCallback(true, false, false);
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                sendCallback(false, true, false);
+            }
+        }
     }
     
     public void onNewIntent(Intent intent) { }
+
+    public void sendCallback(Boolean completed, Boolean cancelled, Boolean error) {
+        if (callback != null) {
+            callback.invoke(completed, cancelled, error);
+            callback = null;
+        }
+    }
 
 }

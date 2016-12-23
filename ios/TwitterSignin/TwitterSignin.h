@@ -9,5 +9,8 @@
 #import "RCTBridge.h"
 #import <Foundation/Foundation.h>
 
-@interface TwitterSignin : NSObject <RCTBridgeModule>
+@interface TwitterSignin : NSObject <RCTBridgeModule> {
+    RCTResponseSenderBlock _callback;
+}
+
 @end

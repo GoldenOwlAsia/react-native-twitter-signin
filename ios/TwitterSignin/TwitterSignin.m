@@ -58,4 +58,36 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
     }];
 }
 
+RCT_EXPORT_METHOD(composeTweet:(NSDictionary *)options :(RCTResponseSenderBlock)callback) {
+
+    NSString *body = options[@"body"];
+    NSString *image = options[@"image"];
+
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+
+    if (body) {
+        [composer setText:body];
+    }
+
+    if (image) {
+        [composer setImage:[UIImage imageNamed:image]];
+    }
+
+    UIViewController *rootView = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [composer showFromViewController:rootView completion:^(TWTRComposerResult result) {
+
+        bool completed = NO, cancelled = NO, error = NO;
+
+        if (result == TWTRComposerResultCancelled) {
+            cancelled = YES;
+        }
+        else {
+            completed = YES;
+        }
+
+        callback(@[@(completed), @(cancelled), @(error)]);
+
+    }];
+}
+
 @end
