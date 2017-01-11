@@ -2,6 +2,7 @@ package com.goldenowl.twittersignin;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -173,33 +174,47 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 			ImageLoader.getInstance().init(config);
 
 		ImageLoader.getInstance().loadImage(shareContent.getString("imageURL"), new ImageLoadingListener() {
+			ProgressDialog progress;
+
 			@Override
 			public void onLoadingStarted(String imageUri, View view) {
-
+				progress = new ProgressDialog(getCurrentActivity());
+				progress.setMessage("Loading...");
+				progress.show();
 			}
 
 			@Override
 			public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-				if(shareCallback != null) {
-					shareCallback.invoke("Failed to download image " + shareContent.getString("imageURL"), null);
-					TwitterSigninModule.shareCallback = null;
-					shareContent = null;
+				if (progress != null && progress.isShowing()) {
+					progress.dismiss();
+
+					if(shareCallback != null) {
+						shareCallback.invoke("Failed to download image", null);
+						TwitterSigninModule.shareCallback = null;
+						shareContent = null;
+					}
 				}
 			}
 
 			@Override
 			public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-				File file = ImageLoader.getInstance().getDiskCache().get(imageUri);
-				String path = file.getAbsolutePath();
+				if (progress != null && progress.isShowing()) {
+					progress.dismiss();
 
-				Log.w(TAG, "image: " + path);
+					File file = ImageLoader.getInstance().getDiskCache().get(imageUri);
+					String path = file.getAbsolutePath();
 
-				composeTweet(Uri.parse(path));
+					Log.w(TAG, "image: " + path);
+
+					composeTweet(Uri.parse(path));
+				}
 			}
 
 			@Override
 			public void onLoadingCancelled(String imageUri, View view) {
-
+				if (progress != null) {
+					progress.dismiss();
+				}
 			}
 		});
 	}
