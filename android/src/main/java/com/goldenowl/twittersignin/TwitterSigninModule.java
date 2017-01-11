@@ -68,7 +68,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
 	public static Callback shareCallback = null;
 	private ReadableMap shareContent;
-	private Activity act = null;
 
     public TwitterSigninModule(ReactApplicationContext reactContext, PermissionCallbackManager permissionCallbackManager) {
         super(reactContext);
@@ -150,7 +149,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 	public void showTweetComposerWithSharingContent(ReadableMap shareContent, final Callback shareCallback) {
 		TwitterSigninModule.shareCallback = shareCallback;
 		this.shareContent = shareContent;
-		act = getCurrentActivity();
 
 		if(verifyStoragePermissions(getCurrentActivity())) {
 			downloadImageAndPostTweet();
@@ -221,17 +219,27 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
 	private void composeTweet(@Nullable Uri image) {
 		try {
-			TweetComposer.Builder builder = new TweetComposer.Builder(act)
-					.text(shareContent.getString("text"))
-					.url(new URL(shareContent.getString("linkURL")));
-			if(image != null) {
-				builder.image(image);
+			Activity act = getCurrentActivity();
+			if (act != null) {
+				TweetComposer.Builder builder = new TweetComposer.Builder(act)
+						.text(shareContent.getString("text"))
+						.url(new URL(shareContent.getString("linkURL")));
+				if (image != null) {
+					builder.image(image);
+				}
+				if (shareCallback != null) {
+					shareCallback.invoke(null, "success");
+					shareCallback = null;
+				}
+				builder.show();
 			}
-			if(shareCallback != null) {
-				shareCallback.invoke(null, "success");
-				shareCallback = null;
+			else {
+				if(shareCallback != null) {
+					shareCallback.invoke("Tweet composing failed", null);
+					TwitterSigninModule.shareCallback = null;
+					shareContent = null;
+				}
 			}
-			builder.show();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 			if(shareCallback != null) {
