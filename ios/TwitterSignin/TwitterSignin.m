@@ -36,7 +36,7 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
                                    @"code":@(error.code),
                                    @"userInfo":[error.userInfo description]
                                    };
-            reject(@"Error", @"Twitter signin error", body);
+            reject(@"Error", @"Twitter signin error", error);
         } else {
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
             NSURLRequest *request = [client URLRequestWithMethod:@"GET"
