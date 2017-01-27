@@ -7,8 +7,8 @@
 //
 #import <Fabric/Fabric.h>
 #import <TwitterKit/Twitter.h>
-#import "RCTEventDispatcher.h"
-#import "RCTConvert.h"
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTConvert.h>
 #import "TwitterSignin.h"
 #import <RCTUtils.h>
 
