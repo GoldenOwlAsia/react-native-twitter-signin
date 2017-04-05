@@ -9,8 +9,8 @@
 #import <TwitterKit/Twitter.h>
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTConvert.h>
+#import <React/RCTUtils.h>
 #import "TwitterSignin.h"
-#import <RCTUtils.h>
 
 @implementation TwitterSignin
 
