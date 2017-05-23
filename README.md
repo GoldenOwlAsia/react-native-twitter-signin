@@ -55,7 +55,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
            compile project(':react-native-twitter-signin')
            ...
         }
-  - In you `MainActivity.java` makes use of the package as following:
+  - In you `MainApplication.java` makes use of the package as following:
 
 ```java
         
