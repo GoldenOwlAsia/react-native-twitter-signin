@@ -51,7 +51,7 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
             NSURLRequest *request = [client URLRequestWithMethod:@"GET"
                                                              URL:@"https://api.twitter.com/1.1/account/verify_credentials.json"
-                                                      parameters:@{@"include_email": @"false", @"skip_status": @"true"}
+                                                      parameters:@{@"include_email": @"true", @"skip_status": @"true"}
                                                            error:nil];
             [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                 NSError *jsonError;
