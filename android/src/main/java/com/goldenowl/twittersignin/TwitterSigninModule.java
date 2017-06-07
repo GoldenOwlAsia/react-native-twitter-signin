@@ -8,17 +8,16 @@
 
 package com.goldenowl.twittersignin;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
+import android.app.Activity;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Promise;
 
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Result;
@@ -30,6 +29,7 @@ import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 import io.fabric.sdk.android.Fabric;
 
 
+
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
     private final int RESULT_CANCELED = 0;
@@ -37,13 +37,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     public TwitterSigninModule(ReactApplicationContext reactContext) {
         super(reactContext);
-
         reactContext.addActivityEventListener(this);
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-
     }
 
     @Override
@@ -51,10 +45,19 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
         return "TwitterSignin";
     }
 
+
+   @ReactMethod
+    public void init(String consumerKey, String consumerSecret, Promise promise) {
+      TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
+      Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+      WritableMap map = Arguments.createMap();
+      promise.resolve(map);
+    }
+
+
     @ReactMethod
-    public void logIn(String consumerKey, String consumerSecret,  final Callback callback) {
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
-        Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+    public void logIn(final Promise promise) {
+
         twitterAuthClient = new TwitterAuthClient();
 
         Twitter.logIn(getCurrentActivity(), new com.twitter.sdk.android.core.Callback<TwitterSession>() {
@@ -72,28 +75,30 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                     @Override
                     public void success(Result<String> result) {
                         map.putString("email", result.data);
-                        callback.invoke(null, map);
+                        promise.resolve(map);
                     }
 
                     @Override
                     public void failure(TwitterException exception) {
-                        // invoke callback with no email key
-                        callback.invoke(null, map);
+                        map.putString("email", "COULD_NOT_FETCH");
+                        promise.reject("COULD_NOT_FETCH", map.toString());
                     }
                 });
             }
 
             @Override
             public void failure(TwitterException exception) {
-                Log.d("failure", exception.toString());
-                callback.invoke(exception.toString(), null);
+              promise.reject("USER_CANCELLED", exception.getMessage(), exception);
             }
         });
     }
 
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-        if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
+    public void onNewIntent(Intent intent) {}
+
+    @Override
+    public void onActivityResult(Activity currentActivity, int requestCode, int resultCode, Intent data) {
+      if(twitterAuthClient != null && twitterAuthClient.getRequestCode()==requestCode) {
             boolean twitterLoginWasCanceled = (resultCode == RESULT_CANCELED);
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
         }
