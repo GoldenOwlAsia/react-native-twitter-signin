@@ -1,9 +1,36 @@
 {
-  "name": "react-native-twitter-signin",
+  "_from": "git+https://github.com/nalin/react-native-twitter-signin.git",
+  "_id": "react-native-twitter-signin@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-FSA8EZEobFGVJ8XfmPtOiH3+5Gw=",
+  "_location": "/react-native-twitter-signin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/nalin/react-native-twitter-signin",
+    "rawSpec": "https://github.com/nalin/react-native-twitter-signin",
+    "saveSpec": "git+https://github.com/nalin/react-native-twitter-signin.git",
+    "fetchSpec": "https://github.com/nalin/react-native-twitter-signin.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/nalin/react-native-twitter-signin.git#fc08bced8ba40a041c8295af4662d844ede0c33a",
+  "_spec": "https://github.com/nalin/react-native-twitter-signin",
+  "_where": "/Users/nalinmittal/code/oneVoice",
+  "bugs": {
+    "url": "https://github.com/GoldenOwlAsia/react-native-twitter-signin/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
   "description": "Social Signin with Twitter",
-  "version": "0.0.1",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
-  "repository": "git@github.com:GoldenOwlAsia/react-native-twitter-signin.git",
   "keywords": [
     "twitter",
     "signin",
@@ -11,9 +38,11 @@
     "authentication",
     "react native"
   ],
-  "engines": {
-    "node": ">=4.0.0"
+  "license": "MIT",
+  "name": "react-native-twitter-signin",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GoldenOwlAsia/react-native-twitter-signin.git"
   },
-  "dependencies": {},
-  "license": "MIT"
+  "version": "0.0.1"
 }

@@ -2,17 +2,14 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.+'
-        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 23
@@ -31,13 +28,12 @@ android {
 
 repositories {
     mavenCentral()
-    maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
     compile "com.android.support:appcompat-v7:23.0.1"
-    compile('com.twitter.sdk.android:twitter:1.13.1@aar') {
+    compile('com.twitter.sdk.android:twitter-core:3.0.0') {
         transitive = true
     }
 }
