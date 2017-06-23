@@ -118,7 +118,7 @@ Code and documentation copyright 2016 Justin Nguyen. Code released under [the MI
 [react-native](http://facebook.github.io/react-native/)
 [react-native-facebook-login](https://github.com/magus/react-native-facebook-login)
 
-## Inspiration
+## Donation
 
 To support me on maintaining this library:
 
