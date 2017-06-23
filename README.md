@@ -118,6 +118,8 @@ Code and documentation copyright 2016 Justin Nguyen. Code released under [the MI
 [react-native](http://facebook.github.io/react-native/)
 [react-native-facebook-login](https://github.com/magus/react-native-facebook-login)
 
+## Inspiration
 
+To support me on maintaining this library:
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EFCCM8QYU4ZR2&lc=VN&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
