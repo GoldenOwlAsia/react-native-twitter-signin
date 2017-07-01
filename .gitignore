@@ -40,3 +40,6 @@ android/app/libs
 android/keystores/debug.keystore
 android/gradlew
 android/gradlew.bat
+android/android.iml
+android/gradle/wrapper/gradle-wrapper.jar
+android/gradle/wrapper/gradle-wrapper.properties
