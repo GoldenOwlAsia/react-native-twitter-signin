@@ -2,16 +2,14 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
+        classpath 'com.android.tools.build:gradle:1.2.+'
     }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 23
@@ -29,17 +27,14 @@ android {
 }
 
 repositories {
-    maven { url 'https://maven.fabric.io/public' }
-    maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        url "$projectDir/../../react-native/android"
-    }
+    mavenCentral()
 }
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
+    compile "com.android.support:appcompat-v7:23.0.1"
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile('com.twitter.sdk.android:twitter:2.3.1@aar') {
-        transitive = true;
+    compile('com.twitter.sdk.android:twitter-core:3.0.0') {
+        transitive = true
     }
 }
