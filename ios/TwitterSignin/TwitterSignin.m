@@ -5,7 +5,7 @@
 //  Created by Justin Nguyen on 22/5/16.
 //  Copyright © 2016 Golden Owl. All rights reserved.
 //
-#import <Fabric/Fabric.h>
+
 #import <TwitterKit/TwitterKit.h>
 #import <React/RCTEventDispatcher.h>
 #import "TwitterSignin.h"
@@ -56,7 +56,17 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
               resolve(body);
             }];
         }
-    }];
+        NSLog(@"email here: %@", email);
+        NSDictionary *body = @{@"authToken": session.authToken,
+                               @"authTokenSecret": session.authTokenSecret,
+                               @"userID":session.userID,
+                               @"email": email,
+                               @"userName":session.userName};
+        NSLog(@"body: %@", body);
+        callback(@[[NSNull null], body]);
+      }];
+    }
+  }];
 }
 
 RCT_EXPORT_METHOD(logOut:(BOOL *)forceClearCookies callback:(RCTResponseSenderBlock)callback)
