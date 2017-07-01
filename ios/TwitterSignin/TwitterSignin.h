@@ -6,7 +6,7 @@
 //  Copyright © 2016 Golden Owl. All rights reserved.
 //
 
-#import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
 #import <Foundation/Foundation.h>
 
 @interface TwitterSignin : NSObject <RCTBridgeModule>

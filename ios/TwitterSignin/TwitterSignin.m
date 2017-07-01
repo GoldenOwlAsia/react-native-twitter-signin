@@ -19,11 +19,16 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(init: (NSString *)consumerKey consumerSecret:(NSString *)consumerSecret resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
 {
-    [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
-    [Fabric with:@[[Twitter class]]];
-    
+  [[Twitter sharedInstance] startWithConsumerKey:consumerKey consumerSecret:consumerSecret];
+  [Fabric with:@[[Twitter class]]];
+}
+RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+  
     [[Twitter sharedInstance] logInWithMethods:TWTRLoginMethodWebBased completion:^(TWTRSession *session, NSError *error) {
         if (error) {
             NSDictionary *body = @{
@@ -31,7 +36,7 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
                                    @"code":@(error.code),
                                    @"userInfo":[error.userInfo description]
                                    };
-            callback(@[body, [NSNull null]]);
+            reject(@"Error", @"Twitter signin error", error);
         } else {
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
             NSURLRequest *request = [client URLRequestWithMethod:@"GET"
@@ -46,13 +51,13 @@ RCT_EXPORT_METHOD(logIn:(NSString *)consumerKey consumerSecret:(NSString *)consu
                     email = json[@"email"];
                 }
                 NSLog(@"email here");
-                NSLog(email);
+                NSLog(@"%@", email);
                 NSDictionary *body = @{@"authToken": session.authToken,
                                        @"authTokenSecret": session.authTokenSecret,
                                        @"userID":session.userID,
                                        @"email": email,
                                        @"userName":session.userName};
-                callback(@[[NSNull null], body]);
+              resolve(body);
             }];
         }
     }];
