@@ -1,6 +1,5 @@
 package com.goldenowl.twittersignin;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.app.Activity;
 import android.Manifest;
@@ -36,6 +35,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -65,6 +65,7 @@ import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 
 import java.util.Map;
 import java.util.Set;
+
 
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -105,11 +106,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 				return true;
 			}
 		});
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-
     }
 
     @Override
@@ -228,6 +224,9 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
       callback.invoke(null, true);
     }
+
+    @Override
+    public void onNewIntent(Intent intent) {}
 
     @Override
     public void onActivityResult(Activity currentActivity, int requestCode, int resultCode, Intent data) {
