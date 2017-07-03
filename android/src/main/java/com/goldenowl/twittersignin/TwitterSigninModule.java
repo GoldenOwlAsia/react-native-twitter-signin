@@ -17,6 +17,7 @@ import android.webkit.CookieSyncManager;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -32,10 +33,13 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.twitter.sdk.android.core.DefaultLogger;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.SessionManager;
 import com.twitter.sdk.android.core.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterAuthToken;
+import com.twitter.sdk.android.core.TwitterConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
@@ -52,8 +56,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 
 public class TwitterSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -73,78 +75,21 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
     public TwitterSigninModule(ReactApplicationContext reactContext, PermissionCallbackManager permissionCallbackManager) {
         super(reactContext);
         reactContext.addActivityEventListener(this);
-        ((PermissionCallbackManagerImpl) permissionCallbackManager).registerCallback(REQUEST_EXTERNAL_STORAGE, new PermissionCallbackManagerImpl.Callback() {
-            @Override
-            public boolean onRequestPermissionsResult(String[] permissions, int[] grantResults) {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
-                    downloadImageAndPostTweet();
-
-                } else {
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                    composeTweet(null);
-                }
-                return true;
-            }
-        });
-    }
-
-    public static WritableArray usersArrayToWritableArray(List<User> usersArray) {
-        WritableArray writableArray = new WritableNativeArray();
-
-        for (User user : usersArray) {
-            if (user != null)
-                writableArray.pushMap(userToWritableMap(user));
-        }
-
-        return writableArray;
-    }
-
-    public static WritableMap userToWritableMap(User user) {
-        WritableMap writableMap = new WritableNativeMap();
-
-        if (user == null) {
-            return null;
-        }
-
-        writableMap.putString("id", String.valueOf(user.id));
-        writableMap.putString("name", user.name);
-        writableMap.putString("profile_image_url", user.profileImageUrl);
-
-        return writableMap;
-    }
-
-    public static boolean verifyStoragePermissions(Activity activity) {
-        // Check if we have write permission
-        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-
-            return false;
-        }
-
-        return true;
     }
 
     @Override
     public String getName() {
-        return "TwitterSignin";
+        return "RNTwitterSignin";
     }
 
     @ReactMethod
     public void init(String consumerKey, String consumerSecret, Promise promise) {
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, consumerSecret);
-        Fabric.with(getReactApplicationContext(), new Twitter(authConfig));
+        TwitterConfig config = new TwitterConfig.Builder(this)
+                .logger(new DefaultLogger(Log.DEBUG))
+                .twitterAuthConfig(new TwitterAuthConfig("CONSUMER_KEY", "CONSUMER_SECRET"))
+                .debug(true)
+                .build();
+        Twitter.initialize(config);
         WritableMap map = Arguments.createMap();
         promise.resolve(map);
     }
@@ -217,13 +162,16 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
         }
 
+        TwitterCore instance = TwitterCore.getInstance();
+        SessionManager<TwitterSession> sessionManager = instance.getSessionManager();
+
         try {
-            Map<Long, TwitterSession> sessions = Twitter.getSessionManager().getSessionMap();
+            Map<Long, TwitterSession> sessions = sessionManager.getSessionMap();
             System.out.println("TWITTER SEESIONS " + +sessions.size());
             Set<Long> sessids = sessions.keySet();
             for (Long sessid : sessids) {
                 System.out.println("TWITTER SESSION CLEARING " + sessid);
-                Twitter.getSessionManager().clearSession(sessid);
+                instance.getSessionManager().clearSession(sessid);
             }
         } catch (Exception e) {
             System.out.println("TWITTER: logout # clear active session");
@@ -232,19 +180,10 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
         try {
             System.out.println("TWITTER CLEARING ACTIVE SESSION");
-            Twitter
-                    .getSessionManager()
+            sessionManager
                     .clearActiveSession();
         } catch (Exception e) {
             System.out.println("TWITTER: logout # clear active session");
-            e.printStackTrace();
-        }
-
-        try {
-            System.out.println("TWITTER LOGGING OUT");
-            Twitter.logOut();
-        } catch (Exception e) {
-            System.out.println("TWITTER: logout # logout");
             e.printStackTrace();
         }
 
@@ -265,7 +204,7 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
     @ReactMethod
     public void getFriendsListWithCallback(final Callback callback) {
-        TwitterSession session = Twitter.getSessionManager().getActiveSession();
+        TwitterSession session = TwitterCore.getInstance().getSessionManager().getActiveSession();
         MyTwitterApiClient twitterApiClient = new MyTwitterApiClient(session);
         FriendsService friendsService = twitterApiClient.getFriendsService();
         Call<Friends> call = friendsService.getFriends(session.getUserId(), 200);
@@ -409,4 +348,50 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
 
         return errorMessage;
     }
+
+
+    public static WritableArray usersArrayToWritableArray(List<User> usersArray) {
+        WritableArray writableArray = new WritableNativeArray();
+
+        for (User user : usersArray) {
+            if (user != null)
+                writableArray.pushMap(userToWritableMap(user));
+        }
+
+        return writableArray;
+    }
+
+    public static WritableMap userToWritableMap(User user) {
+        WritableMap writableMap = new WritableNativeMap();
+
+        if (user == null) {
+            return null;
+        }
+
+        writableMap.putString("id", String.valueOf(user.id));
+        writableMap.putString("name", user.name);
+        writableMap.putString("profile_image_url", user.profileImageUrl);
+
+        return writableMap;
+    }
+
+    public static boolean verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+
+            return false;
+        }
+
+        return true;
+    }
+
+
 }
