@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.+'
+        classpath 'com.android.tools.build:gradle:2.2.0'
     }
 }
 
@@ -33,7 +33,6 @@ repositories {
 dependencies {
     compile 'com.facebook.react:react-native:+'
     compile "com.android.support:appcompat-v7:23.0.1"
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile('com.twitter.sdk.android:twitter-core:3.0.0') {
         transitive = true
     }
