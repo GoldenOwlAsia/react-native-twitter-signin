@@ -20,14 +20,9 @@ import java.util.List;
 
 public class TwitterSigninPackage implements ReactPackage {
 
-	private PermissionCallbackManager mPermissionCallbackManager;
-	public TwitterSigninPackage(PermissionCallbackManager permissionCallbackManager) {
-		mPermissionCallbackManager = permissionCallbackManager;
-	}
-
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new TwitterSigninModule(reactContext, mPermissionCallbackManager));
+        return Arrays.<NativeModule>asList(new TwitterSigninModule(reactContext));
     }
 
     @Override
