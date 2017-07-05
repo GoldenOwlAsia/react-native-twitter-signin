@@ -19,9 +19,6 @@
   ],
   "license": "MIT",
   "name": "react-native-twitter-signin",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/GoldenOwlAsia/react-native-twitter-signin.git"
-  },
-  "version": "1.0.0"
+  "repository": "git@github.com/GoldenOwlAsia/react-native-twitter-signin.git",
+  "version": "1.0.1"
 }
