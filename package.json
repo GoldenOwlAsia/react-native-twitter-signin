@@ -11,14 +11,20 @@
   },
   "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
   "keywords": [
+    "react",
+    "react-native",
+    "react native",
+    "native",
     "twitter",
     "signin",
     "social signin",
-    "authentication",
-    "react native"
+    "authentication"
   ],
   "license": "MIT",
   "name": "react-native-twitter-signin",
-  "repository": "git@github.com/GoldenOwlAsia/react-native-twitter-signin.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoldenOwlAsia/react-native-twitter-signin"
+  },
   "version": "1.0.1"
 }
