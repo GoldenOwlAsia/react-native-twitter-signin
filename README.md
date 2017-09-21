@@ -91,7 +91,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
              new MainReactPackage(),
              new FacebookLoginPackage(),
              new TwitterSigninPackage(),
-             new RNTwitterSigninPackage(this),
+             new RNGoogleSigninPackage(this),
              new VectorIconsPackage(),
              new RNSvgPackage()
            );
