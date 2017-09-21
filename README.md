@@ -91,7 +91,7 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
              new MainReactPackage(),
              new FacebookLoginPackage(),
              new TwitterSigninPackage(),
-             new RNGoogleSigninPackage(this),
+             new RNTwitterSigninPackage(this),
              new VectorIconsPackage(),
              new RNSvgPackage()
            );
@@ -99,6 +99,90 @@ On Android, it will use `Gradle` so all you need to do is to point to the correc
 ```
 
 Keeps in mind that all the configure is for your build tools to recognise the files. So open your Xcode and Android Studio to try making builds and make sure they pass.
+
+
+## Public API
+
+### 1. TwitterSigninButton
+
+```js
+import { TwitterSignIn, TwitterSigninButton } from 'react-native-twitter-signin';
+
+render() {
+
+  <TwitterSigninButton
+    style={{width: 48, height: 48}}
+    size={40}
+    successLogin={(user) => this.setState({ user })}
+    errorLogin={(error) => this.setState({ error })}
+    logOut={() => this.setState({ user: null })}
+  />
+}
+```
+
+
+### 2. TwitterSignin
+
+```js
+import {TwitterSignIn, TwitterSigninButton} from 'react-native-twitter-signin';
+```
+
+#### - configure
+It is mandatory to call this method before login.
+
+Example for default configuration. 
+```js
+import { TwitterSignIn } from 'react-native-twitter-signin';
+
+TwitterSignIn.init(ComsumerKey,ComsumerSecret)
+.then(() => {
+});
+
+```
+
+** Note**: (```ComsumerKey```, ```ComsumerSecret```) are always required
+
+
+#### - logIn
+Prompt the modal to let the user signin into your application
+```js
+TwitterSignin.logIn()
+.then((user) => {
+  console.log(user);
+  this.setState({user: user});
+})
+.catch((err) => {
+  console.log('WRONG SIGNIN', err);
+})
+.done();
+```
+
+#### - logOut
+remove user session from the device
+```js
+TwitterSignin.logOut()
+.then(() => {
+  console.log('out');
+})
+.catch((err) => {
+
+});
+```
+
+### 3. User
+
+This is the typical information you obtain once the user sign in:
+```
+  {
+    authToken: <needed to access Twitter API from the
+    authTokenSecret
+    name: <user Full name>
+    userID: <user id.>
+    userName: <user name>
+    email: <user email>
+  }
+```
+
 
 ## Usage
 

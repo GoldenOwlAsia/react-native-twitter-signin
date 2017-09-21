@@ -1,7 +1,8 @@
 {
   "dependencies": {},
   "peerDependencies": {
-    "react": "15.4.2",
+    "react": "^15.4.2",
+		"prop-types": "^15.5.10",
     "react-native": "0.42.3"
   },
   "deprecated": false,
