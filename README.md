@@ -1,7 +1,6 @@
 [![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
 
-Note: this guide is for TwitterKit 3.0 and ReactNatiee 0.42+.
-Note: Updated to work on RN >= 47 
+Note: this guide is for TwitterKit 3.0 and ReactNatiee 0.47+.
 
 # React Native : Twitter Signin
 This package provides necessary code to get your social sign in using Twitter works with least pain possible.
@@ -119,10 +118,4 @@ Code and documentation copyright 2016 Justin Nguyen. Code released under [the MI
 
 [react-native](http://facebook.github.io/react-native/)
 [react-native-facebook-login](https://github.com/magus/react-native-facebook-login)
-
-## Donation
-
-To support me on maintaining this library:
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=EFCCM8QYU4ZR2&lc=VN&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
