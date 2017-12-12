@@ -1,6 +1,7 @@
 [![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
 
 Note: this guide is for TwitterKit 3.0 and ReactNatiee 0.42+.
+Note: Updated to work on RN >= 47 
 
 # React Native : Twitter Signin
 This package provides necessary code to get your social sign in using Twitter works with least pain possible.
