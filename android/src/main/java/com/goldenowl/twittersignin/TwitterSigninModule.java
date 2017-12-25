@@ -38,7 +38,6 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
         this.reactContext = reactContext;
     }
 
-    @Override
     public String getName() {
         return TAG;
     }
@@ -108,11 +107,11 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                 .clearActiveSession();
     }
 
-    @Override
+    
     public void onNewIntent(Intent intent) {
     }
 
-    @Override
+    
     public void onActivityResult(Activity currentActivity, int requestCode, int resultCode, Intent data) {
         if (twitterAuthClient != null && twitterAuthClient.getRequestCode() == requestCode) {
             twitterAuthClient.onActivityResult(requestCode, resultCode, data);
