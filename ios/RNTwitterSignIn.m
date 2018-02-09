@@ -40,13 +40,7 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
             [client sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                 NSError *jsonError;
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-                NSString *email = json[@"email"] ?: @"";
-                NSDictionary *body = @{@"authToken": session.authToken,
-                                       @"authTokenSecret": session.authTokenSecret,
-                                       @"userID":session.userID,
-                                       @"email": email,
-                                       @"userName":session.userName};
-                resolve(body);
+                resolve(json);
             }];
         }
     }];
