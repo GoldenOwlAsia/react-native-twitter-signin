@@ -41,10 +41,12 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
                 NSError *jsonError;
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
                 NSString *email = json[@"email"] ?: @"";
+                NSString *name = json[@"name"] ?: @"";
                 NSDictionary *body = @{@"authToken": session.authToken,
                                        @"authTokenSecret": session.authTokenSecret,
                                        @"userID":session.userID,
                                        @"email": email,
+                                       @"name": name,
                                        @"userName":session.userName};
                 resolve(body);
             }];
