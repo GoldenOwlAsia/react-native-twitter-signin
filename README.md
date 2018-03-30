@@ -28,13 +28,29 @@ Firstly, install the npm package:
 
     npm install react-native-twitter-signin --save
 
+or
+
+    yarn add react-native-twitter-signin
+
 #### iOS
+
+##### CocoaPods
+
+ - Running `react-native link react-native-twitter-link`
+ - Go into `ios` folder and run `pod install`
+
+##### Manual
 
  - Link RNTwitterSignIn.xcodeproj by running `react-native link react-native-twitter-signin`
  - Download TwitterKit 3.0 from here https://ton.twimg.com/syndication/twitterkit/ios/3.0.3-update/TwitterKitManual.zip
  - Add TwitterKit, TwitterCore and 2 other bundle files into your root folder in Xcode
  - In `Build Phases → Link Binary with libraries` add `Twitter.framework` and `LibRBTwitterSignin.a`
- - Configure Info.Plist like below, replace `<consumerKey>` with your own key:
+
+---
+
+After done all the steps in `CocoaPods` or `Manual`, please do the following steps:
+
+ - Configure `Info.plist` like below, replace `<consumerKey>` with your own key:
 
 ```
 // Info.plist
@@ -53,13 +69,33 @@ Firstly, install the npm package:
     <string>twitterauth</string>
 </array>
 ```
-  - Modify AppDelegate.m to `#import <TwitterKit/TwitterKit.h>` and handle openUrl
+  - Modify AppDelegate.m to `#import <TwitterKit/TwitterKit.h>` and handle `openUrl`
 ````
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
   return [[Twitter sharedInstance] application:app openURL:url options:options];
 }
 ````
-  
+
+*Notice:* Only one `openURL` method can be defined, so if you already defined other login method (like Google or Facebook) before,
+you must combine the functions into single one:
+
+```
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+
+  BOOL handleFB = [[FBSDKApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+  ];
+
+  BOOL handleTwitter = [[Twitter sharedInstance] application:application openURL:url options:options];
+
+  return handleFB || handleTwitter;
+}
+```
+
 
 #### Android
 
