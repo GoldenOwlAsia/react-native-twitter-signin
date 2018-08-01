@@ -33,7 +33,7 @@ repositories {
 dependencies {
     compile 'com.facebook.react:react-native:+'
     compile "com.android.support:appcompat-v7:23.0.1"
-    compile('com.twitter.sdk.android:twitter-core:3.0.0') {
+    compile('com.twitter.sdk.android:twitter-core:3.2.0') {
         transitive = true
     }
 }
