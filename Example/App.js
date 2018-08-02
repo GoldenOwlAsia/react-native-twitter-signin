@@ -16,7 +16,7 @@ export default class Example extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <TwitterButton />
+        <TwitterButton style={styles.button} />
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
@@ -42,6 +42,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  button: {
+    height: 50,
   },
   icon: {
     width: 100,

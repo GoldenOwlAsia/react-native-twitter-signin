@@ -7,16 +7,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "15.4.2",
-    "react-native": "0.42.3",
-    "react-native-twitter-signin": "../.",
-    "react-native-vector-icons": "^4.2.0"
+    "react": "16.4.1",
+    "react-native": "0.56.0",
+    "react-native-twitter-signin": "../."
   },
   "devDependencies": {
-    "babel-jest": "20.0.3",
-    "babel-preset-react-native": "2.0.0",
-    "jest": "20.0.4",
-    "react-test-renderer": "15.4.2"
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "^5",
+    "jest": "23.4.2",
+    "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native"
