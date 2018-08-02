@@ -53,7 +53,7 @@ Firstly, install the npm package:
     <string>twitterauth</string>
 </array>
 ```
-  - Modify AppDelegate.m to `#import <TwitterKit/TwitterKit.h>` and handle openUrl
+  - Modify AppDelegate.m to `#import <TwitterKit/TWTRKit.h>` and handle openUrl
 ````
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
   return [[Twitter sharedInstance] application:app openURL:url options:options];
