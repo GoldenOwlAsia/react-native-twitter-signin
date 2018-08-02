@@ -1,8 +1,11 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-native": "^0.56.0"
+  },
   "peerDependencies": {
-    "react": "15.4.2",
-    "react-native": "0.42.3"
+    "react": "^16.4.1",
+    "react-native": "^0.56.0"
   },
   "deprecated": false,
   "description": "Social Signin with Twitter",
