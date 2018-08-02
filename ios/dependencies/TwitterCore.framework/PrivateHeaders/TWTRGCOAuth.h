@@ -29,6 +29,10 @@
 
 */
 
+/**
+ This header is private to the Twitter Core SDK and not exposed for public SDK consumption
+ */
+
 #import <Foundation/Foundation.h>
 
 /*
@@ -50,7 +54,7 @@
 /*
  Set the time offset to be used for timestamp calculations.
  */
-+ (void)setTimeStampOffset:(time_t)offset;
++ (void)setTimestampOffset:(time_t)offset;
 
 /*
  Control HTTPS cookie storage for all generated requests

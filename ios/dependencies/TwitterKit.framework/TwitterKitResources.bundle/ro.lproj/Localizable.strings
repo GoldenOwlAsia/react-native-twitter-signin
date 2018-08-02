@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Anulează";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Ce se întâmplă?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet netrimis";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Accesează Configurări iOS > Intimitate > Servicii de localizare pentru a permite Twitter să-ți acceseze locația.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nu există conturi Twitter configurate. Poți să adaugi sau să creezi un cont Twitter în Setări.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nu există conturi Twitter configurate. Poți să creezi un cont sau să te conectezi la unul în aplicația Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Niciun cont Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweetul nu s-a trimis.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d s";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d s";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Anulează";
 
 "tw__card_compose_character_count" = "%td caractere rămase";
 

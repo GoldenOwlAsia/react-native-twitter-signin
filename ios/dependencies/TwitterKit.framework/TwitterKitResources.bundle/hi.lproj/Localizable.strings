@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "रद्द करें";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "क्या हो रहा है?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "ट्वीट भेजा नहीं गया";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Twitter को आपके स्थान तक पहुँचने देने के लिए कृपया iOS सेटिंग्ज > गोपनीयता > स्थान सेवाएँ पर जाएं।";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "कोई भी Twitter खाता कॉन्फ़िगर किया हुआ नहीं है। आप सेंटिग्ज में Twitter खाता जोड़ या बना सकते हैं।";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "कोई भी Twitter खाता कॉन्फ़िगर नहीं है. आप Twitter ऐप में कोई खाता बना सकते हैं या उसमें लॉगिन कर सकते हैं.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "कोई Twitter खाता नहीं";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "ट्वीट भेजा नहीं जा सका।";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d पल";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d पल";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "रद्द करें";
 
 "tw__card_compose_character_count" = "%td अक्षर बाकी हैं";
 

@@ -86,7 +86,7 @@
 /* Shared composer */
 
 /* "Cancel" */
-"TSEUI_CANCEL_ACTION_LABEL" = "Cancel";
+"CANCEL_ACTION_LABEL" = "Cancel";
 /* "Tweet not sent" */
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet not sent";
 /* Please go to iOS Settings > Privacy > Location Services to allow Twitter to access your location. */
@@ -117,7 +117,10 @@
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet failed to send.";
 /* "Twitter" */
 "SHARE_EXT_TWITTER_TITLE" = "Twitter";
-
+/* "What's Happening?" - Placeholder */
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "What's Happening?";
+/* There are no Twitter accounts configured. You can create or log in to an account in the Twitter app. */
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "There are no Twitter accounts configured. You can create or log in to an account in the Twitter app.";
 
 /* Test String (just for unit tests) */
 "tw__test_string" = "Test";

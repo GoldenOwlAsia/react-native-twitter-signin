@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "İptal";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Neler Oluyor?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet gönderilmedi";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Twitter'a konumuna erişme izni vermek için lütfen iOS'ta Ayarlar > Gizlilik > Konum Servisleri bölümüne git.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Yapılandırılmış Twitter hesabı yok. Ayarlarda bir Twitter hesabı ekleyebilir veya oluşturabilirsin.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Yapılandırılmış Twitter hesapları yok. Bir hesabı Twitter uygulaması ile oluşturabilir veya giriş yapabilirsin.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Twitter Hesabı Yok";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet gönderilemedi.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%ds";
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "İptal";
 
 "tw__card_compose_character_count" = "%td karakter kaldı";
 

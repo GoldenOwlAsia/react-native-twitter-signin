@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Cancel";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "What's Happening?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet not sent";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Please go to iOS Settings > Privacy > Location Services to allow Twitter to access your location.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "There are no Twitter accounts configured. You can add or create a Twitter account in Settings.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "There are no Twitter accounts configured. You can create or log in to an account in the Twitter app.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "No Twitter Account";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet failed to send.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%ds";
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Cancel";
 
 "tw__card_compose_character_count" = "%td characters remaining";
 

@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Mégse";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Mi történik?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "A Tweet nincs elküldve";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Nyisd meg az iOS-beállítások> Adatvédelem> Helyszolgáltatások menüpontot, és engedélyezd a Twitternek, hogy hozzáférhessen a tartózkodási helyedhez.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nincsenek Twitter-fiókok konfigurálva. A Beállítások részen hozzáadhatsz vagy létrehozhatsz egy Twitter-fiókot.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nincsenek Twitter-fiókok konfigurálva. A Twitter alkalmazásban létrehozhatsz egyet, vagy bejelentkezhetsz.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nincs Twitter-fiók";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "A Tweet elküldése sikertelen";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%dmp";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Mégse";
-
 "tw__card_compose_character_count" = "Még %td karakter maradt";
 
 "tw__card_compose_close_hint" = "Koppints kétszer a szerkesztés elvetéséhez";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Bezárás";
 
-"tw__composer_placeholder_text" = "Mi történik most?";
+"tw__composer_placeholder_text" = "Mi történik?";
 
 "tw__email_share_detail_message_format" = "Ha engedélyezed, hogy megtaláljanak @%@ Twitter-fiókodhoz kapcsolt e-mail címed alapján, megkapod %@ felhasználó frissítéseit és egyéb adatait.";
 

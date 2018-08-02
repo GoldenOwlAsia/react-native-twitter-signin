@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D00310F51F09F83000448DF6 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00310F11F09F83000448DF6 /* TwitterKit.framework */; };
-		D00310F61F09F83000448DF6 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00310F21F09F83000448DF6 /* TwitterCore.framework */; };
+		8253856B2112B575001250E5 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825385682112B575001250E5 /* TwitterKit.framework */; };
+		8253856C2112B576001250E5 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8253856A2112B575001250E5 /* TwitterCore.framework */; };
 		D0EFAE3C1F07833600325F6D /* RNTwitterSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EFAE3A1F07833600325F6D /* RNTwitterSignIn.m */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +84,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D00310F11F09F83000448DF6 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = dependencies/TwitterKit.framework; sourceTree = "<group>"; };
-		D00310F21F09F83000448DF6 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = dependencies/TwitterCore.framework; sourceTree = "<group>"; };
-		D00310F31F09F83000448DF6 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = dependencies/TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		D00310F41F09F83000448DF6 /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterShareExtensionUIResources.bundle; path = dependencies/TwitterKit.framework/TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
+		825385672112B575001250E5 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = dependencies/TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		825385682112B575001250E5 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = dependencies/TwitterKit.framework; sourceTree = "<group>"; };
+		825385692112B575001250E5 /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterShareExtensionUIResources.bundle; path = dependencies/TwitterKit.framework/TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
+		8253856A2112B575001250E5 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = dependencies/TwitterCore.framework; sourceTree = "<group>"; };
 		D00311041F09F8C400448DF6 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		D07E57251F07806700A7160F /* libRNTwitterSignIn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTwitterSignIn.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EFAE3A1F07833600325F6D /* RNTwitterSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTwitterSignIn.m; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00310F51F09F83000448DF6 /* TwitterKit.framework in Frameworks */,
-				D00310F61F09F83000448DF6 /* TwitterCore.framework in Frameworks */,
+				8253856B2112B575001250E5 /* TwitterKit.framework in Frameworks */,
+				8253856C2112B576001250E5 /* TwitterCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,11 +125,11 @@
 		D07E571C1F07806700A7160F = {
 			isa = PBXGroup;
 			children = (
+				8253856A2112B575001250E5 /* TwitterCore.framework */,
+				825385682112B575001250E5 /* TwitterKit.framework */,
+				825385672112B575001250E5 /* TwitterKitResources.bundle */,
+				825385692112B575001250E5 /* TwitterShareExtensionUIResources.bundle */,
 				D00311041F09F8C400448DF6 /* React.xcodeproj */,
-				D00310F11F09F83000448DF6 /* TwitterKit.framework */,
-				D00310F21F09F83000448DF6 /* TwitterCore.framework */,
-				D00310F31F09F83000448DF6 /* TwitterKitResources.bundle */,
-				D00310F41F09F83000448DF6 /* TwitterShareExtensionUIResources.bundle */,
 				D0EFAE3A1F07833600325F6D /* RNTwitterSignIn.m */,
 				D0EFAE3B1F07833600325F6D /* RNTwitterSignIn.h */,
 				D07E57261F07806700A7160F /* Products */,
@@ -372,13 +372,9 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
-					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
-					"\"$(SRCROOT)/../../react-native/React\"",
 					"\"$(SRCROOT)/../../../React\"",
-					"\"$(SRCROOT)/../node_modules/react-native/React\"",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -394,13 +390,9 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
-					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
-					"\"$(SRCROOT)/../../react-native/React\"",
 					"\"$(SRCROOT)/../../../React\"",
-					"\"$(SRCROOT)/../node_modules/react-native/React\"",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

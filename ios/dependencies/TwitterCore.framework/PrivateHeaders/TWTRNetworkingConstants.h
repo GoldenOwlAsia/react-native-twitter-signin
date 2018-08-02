@@ -1,23 +1,36 @@
-//
-//  TWTRNetworkingConstants.h
-//  TwitterKit
-//
-//  Created by Kang Chen on 11/12/14.
-//  Copyright (c) 2014 Twitter. All rights reserved.
-//
+/*
+ * Copyright (C) 2017 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/**
+ This header is private to the Twitter Core SDK and not exposed for public SDK consumption
+ */
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXPORT NSString *const TWTRNetworkingErrorDomain;
-FOUNDATION_EXPORT NSString *const TWTRNetworkingUserAgentHeaderKey;
-FOUNDATION_EXPORT NSString *const TWTRNetworkingStatusCodeKey;
+FOUNDATION_EXTERN NSString *const TWTRNetworkingErrorDomain;
+FOUNDATION_EXTERN NSString *const TWTRNetworkingUserAgentHeaderKey;
+FOUNDATION_EXTERN NSString *const TWTRNetworkingStatusCodeKey;
 
 #pragma mark - HTTP Headers
-FOUNDATION_EXPORT NSString *const TWTRContentTypeHeaderField;
-FOUNDATION_EXPORT NSString *const TWTRContentLengthHeaderField;
-FOUNDATION_EXPORT NSString *const TWTRContentTypeURLEncoded;
-FOUNDATION_EXPORT NSString *const TWTRAcceptEncodingHeaderField;
-FOUNDATION_EXPORT NSString *const TWTRAcceptEncodingGzip;
+FOUNDATION_EXTERN NSString *const TWTRContentTypeHeaderField;
+FOUNDATION_EXTERN NSString *const TWTRContentLengthHeaderField;
+FOUNDATION_EXTERN NSString *const TWTRContentTypeURLEncoded;
+FOUNDATION_EXTERN NSString *const TWTRAcceptEncodingHeaderField;
+FOUNDATION_EXTERN NSString *const TWTRAcceptEncodingGzip;
 
 /**
  * Internal API error codes

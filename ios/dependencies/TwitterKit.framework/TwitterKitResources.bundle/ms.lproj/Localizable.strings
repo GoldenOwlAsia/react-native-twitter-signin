@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Batal";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Apa yang sedang Berlaku?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet tidak dihantar";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Sila pergi ke Tetapan iOS > Privasi > Perkhidmatan Lokasi untuk membenarkan Twitter mengakses lokasi anda.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Tiada akaun Twitter yang dikonfigurasikan. Anda boleh menambah atau mencipta akaun Twitter dalam Tetapan.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Tiada akaun Twitter yang dikonfigurasikan. Anda boleh mencipta atau log masuk ke akaun dalam aplikasi Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Tiada Akaun Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet gagal dihantar.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Batal";
-
 "tw__card_compose_character_count" = "%td aksara yang tinggal";
 
 "tw__card_compose_close_hint" = "Ketik dua kali untuk menolak penggubah.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Tutup";
 
-"tw__composer_placeholder_text" = "Apa yang berlaku?";
+"tw__composer_placeholder_text" = "Apa yang sedang Berlaku?";
 
 "tw__email_share_detail_message_format" = "Dapatkan kemas kini dan maklumat lain daripada %@ apabila anda memberikan mereka akses kepada e-mel anda pada akaun Twitter anda @%@.";
 

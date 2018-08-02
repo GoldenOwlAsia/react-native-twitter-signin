@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Annuleren";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Wat houdt je bezig?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet niet verstuurd";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Ga naar iOS-instellingen > Privacy > Locatievoorzieningen om Twitter toegang tot je locatie te geven.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Er zijn geen Twitter-accounts ingesteld. Je kunt een Twitter-account aanmaken of toevoegen bij Instellingen.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Er zijn geen Twitter-accounts ingesteld. Je kan een Twitter-account aanmaken of bij een account inloggen in de Twitter-app.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Geen Twitter-account";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet niet verstuurd.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%ds";
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Annuleren";
 
 "tw__card_compose_character_count" = "%td tekens resterend";
 

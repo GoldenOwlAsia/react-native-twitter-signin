@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "取消";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "有什麼新鮮事？";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "推文未發送";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "請前往 iOS 的「設定 > 隱私 > 位置服務」，允許 Twitter 存取你的位置。";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "未設定任何 Twitter 帳戶。你可以在「設定」中加入或建立 Twitter 帳戶。";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "未設定任何 Twitter 帳戶。你可以在 Twitter 應用程式中建立或登入帳戶。";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "沒有 Twitter 帳戶";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "推文無法發送。";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d 秒";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d 秒";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "取消";
 
 "tw__card_compose_character_count" = "還剩 %td 個字元";
 

@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Annuller";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Hvad sker der?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet ikke sendt";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Gå til iOS-indstillingerne > Privatliv > Lokalitetstjenester for at give Twitter adgang til din lokalitet.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Der er ikke konfigureret nogen Twitter-konti. Du kan tilføje eller oprette en Twitter-konto i indstillingerne.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Der er ikke konfigureret nogen Twitter-konti. Du kan oprette eller logge ind på en konto i Twitter-appen.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Ingen Twitter-konto";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweetet blev ikke sendt.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d s";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d s";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Annuller";
 
 "tw__card_compose_character_count" = "%td tegn tilbage";
 

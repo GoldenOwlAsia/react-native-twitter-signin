@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Zrušiť";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Čo sa deje?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet sa neodoslal";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "V systéme iOS prejdite na položky Nastavenia > Súkromie > Lokalizačné služby a povoľte Twitteru prístup k vašej polohe.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nie sú nakonfigurované žiadne účty na Twitteri. Účet na Twitteri môžete pridať alebo vytvoriť v nastaveniach.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nie sú nakonfigurované žiadne účty na Twitteri. Účet si môžete vytvoriť alebo sa doň prihlásiť v apke Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Žiaden účet na Twitteri";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet sa nepodarilo odoslať.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d s";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d s";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Zrušiť";
 
 "tw__card_compose_character_count" = "Zostávajúci počet znakov: %td";
 

@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "취소";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "무슨 일이 일어나고 있나요?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "트윗이 전송되지 않았습니다";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "iOS 설정 > 개인정보 > 위치 서비스로 이동하여 트위터가 내 위치정보에 접근할 수 있도록 허용하세요.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "설정된 트위터 계정이 없습니다. 설정에서 트위터 계정을 추가하거나 생성할 수 있습니다.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "설정된 트위터 계정이 없습니다. 트위터 앱에서 계정을 생성하거나 로그인할 수 있습니다.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "트위터 계정 없음";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "트윗 전송에 실패했습니다.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d초";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d초";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "취소";
 
 "tw__card_compose_character_count" = "%td자 남음";
 

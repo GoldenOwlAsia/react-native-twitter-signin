@@ -1,8 +1,19 @@
-//
-//  Twitter.h
-//
-//  Copyright (c) 2015 Twitter. All rights reserved.
-//
+/*
+ * Copyright (C) 2017 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 #import <TwitterCore/TWTRSession.h>
 #import <TwitterCore/TWTRSessionStore.h>
@@ -11,25 +22,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#ifndef Twitter
+
+/**
+ *  To support legacy integrations with TwitterKit,
+ *  map the old `Twitter` to the new `TWTRTwitter` using a macro.
+ */
+#define Twitter TWTRTwitter
+
+#endif
+
 /**
  *  The central class of the Twitter Kit.
  *  @note This class can only be used from the main thread.
  */
-@interface Twitter : NSObject
+@interface TWTRTwitter : NSObject
 
 /**
  *  Returns the Twitter singleton.
  *
  *  @return The Twitter singleton.
  */
-+ (Twitter *)sharedInstance;
++ (TWTRTwitter *)sharedInstance;
 
 /**
  *  Start Twitter with your consumer key and secret. These will override any credentials
  *  present in your applications Info.plist.
- *
- *  You do not need to call this method unless you wish to provide credentials other than those
- *  in your Info.plist.
  *
  *  @param consumerKey    Your Twitter application's consumer key.
  *  @param consumerSecret Your Twitter application's consumer secret.
@@ -37,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startWithConsumerKey:(NSString *)consumerKey consumerSecret:(NSString *)consumerSecret;
 
 /**
- *  Start Twitter with a consumer key, secret, and keychain access group. See -[Twitter startWithConsumerKey:consumerSecret:]
+ *  Start Twitter with a consumer key, secret, and keychain access group. See -[TWTRTwitter startWithConsumerKey:consumerSecret:]
  *
  *  @param consumerKey    Your Twitter application's consumer key.
  *  @param consumerSecret Your Twitter application's consumer secret.

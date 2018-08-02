@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "キャンセル";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "いまどうしてる？";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "ツイートが送信されていません";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "iOSの [設定] > [プライバシー] > [位置情報サービス] からTwitterによる位置情報の利用を許可してください。";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Twitterアカウントが設定されていません。設定からTwitterアカウントを追加するか、新規登録してください。";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Twitterアカウントが設定されていません。Twitterアプリでアカウントを新規登録するか、ログインしてください。";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Twitterアカウントがありません";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "ツイートを送信できません。";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d秒";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d秒";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "キャンセル";
 
 "tw__card_compose_character_count" = "残り%td文字";
 
