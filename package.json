@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "homepage": "https://github.com/mrnickel/react-native-twitter-signin.git",
+  "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
   "keywords": [
     "react",
     "react-native",
@@ -27,7 +27,7 @@
   "name": "react-native-twitter-signin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrnickel/react-native-twitter-signin"
+    "url": "https://github.com/GoldenOwlAsia/react-native-twitter-signin"
   },
   "version": "1.1.0"
 }
