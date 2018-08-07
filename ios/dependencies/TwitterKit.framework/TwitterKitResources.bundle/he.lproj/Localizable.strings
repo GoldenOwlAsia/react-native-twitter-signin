@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "ביטול";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "מה קורה?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "הציוץ לא נשלח";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "עבור אל הגדרות iOS > פרטיות > שירותי מיקום כדי לאפשר לטוויטר לגשת למיקום שלך.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "לא הוגדרו חשבונות טוויטר. אפשר להוסיף או ליצור חשבון טוויטר דרך ההגדרות.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "לא הוגדרו חשבונות טוויטר. אפשר ליצור חשבון או להיכנס לחשבון באמצעות היישום של טוויטר.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "אין חשבון טוויטר";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "שליחת הציוץ נכשלה.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d שנ'";
 
 "TIME_SHORT_SECOND_FORMAT" = "שניה %d";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "בטל";
 
 "tw__card_compose_character_count" = "%td תווים נותרו";
 

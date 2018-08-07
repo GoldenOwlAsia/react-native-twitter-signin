@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Zrušit";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Co se děje?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet nebyl odeslán.";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Pro udělení přístupu k poloze pro Twitter přejděte do nastavení iOS > Soukromí > Služby polohy.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Na Twitteru nejsou nakonfigurovány žádné účty. Přidat nebo vytvořit účet na Twitteru můžete v nastavení.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Na Twitteru nejsou nakonfigurovány žádné účty. V aplikaci Twitter můžete vytvořit nový účet nebo se přihlásit k tomu stávajícímu.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Žádný účet na Twitteru";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet se nepodařilo odeslat.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%d s";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Zrušit";
-
 "tw__card_compose_character_count" = "Zbývá znaků: %td";
 
 "tw__card_compose_close_hint" = "Dvojitým klepnutím zavřete editor.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Zavřít";
 
-"tw__composer_placeholder_text" = "Co se právě děje?";
+"tw__composer_placeholder_text" = "Co se děje?";
 
 "tw__email_share_detail_message_format" = "Když aplikaci %@ povolíte přístup k e-mailové adrese ve svém twitterovém účtu @%@, budete dostávat aktualizace a další informace.";
 

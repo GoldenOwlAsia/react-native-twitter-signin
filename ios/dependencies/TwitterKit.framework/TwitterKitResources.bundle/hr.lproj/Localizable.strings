@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Odustani";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Što se zbiva?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet nije poslan";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "U sustavu iOS otvorite odjeljak Postavke > Privatnost > Lokacijske usluge te dopustite Twitteru pristup svojoj lokaciji.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nema konfiguriranih računa za Twitter. Račun za Twitter možete dodati ili stvoriti u odjeljku Postavke.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nema konfiguriranih računa za Twitter. Stvorite račun ili se prijavite na njega u aplikaciji Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nema računa za Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Slanje tweeta nije uspjelo.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%d s";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Odustani";
-
 "tw__card_compose_character_count" = "Broj preostalih znakova: %td";
 
 "tw__card_compose_close_hint" = "Dodirnite dvaput da biste uklonili sastavljač teksta.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Zatvori";
 
-"tw__composer_placeholder_text" = "Što se događa?";
+"tw__composer_placeholder_text" = "Što se zbiva?";
 
 "tw__email_share_detail_message_format" = "Primajte novosti i druge informacije o aplikaciji %@ kada im omogućite da pristupe vašoj  adresi e-pošte na računu za Twitter @%@.";
 

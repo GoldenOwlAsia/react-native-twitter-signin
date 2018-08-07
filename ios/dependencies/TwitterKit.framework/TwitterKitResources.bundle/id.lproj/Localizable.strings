@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Batal";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Apa yang Sedang Terjadi?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet tidak terkirim";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Buka Pengaturan iOS > Privasi > Layanan Lokasi untuk memungkinkan Twitter mengakses lokasi Anda.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Tidak ada akun Twitter yang dikonfigurasi. Anda dapat menambahkan atau membuat akun Twitter di Pengaturan.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Tidak ada akun Twitter yang dikonfigurasi. Anda dapat membuat atau masuk ke akun di aplikasi Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Tidak Ada Akun Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet gagal dikirim.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%dd";
 
 "TIME_SHORT_SECOND_FORMAT" = "%dd";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Batal";
 
 "tw__card_compose_character_count" = "%td karakter tersisa";
 

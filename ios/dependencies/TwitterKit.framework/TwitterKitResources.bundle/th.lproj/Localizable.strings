@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "ยกเลิก";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "มีอะไรเกิดขึ้นบ้าง";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "ยังไม่ได้ส่งทวีต";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "โปรดไปที่ การตั้งค่า iOS > ความเป็นส่วนตัว > บริการตำแหน่งที่ตั้ง เพื่อให้ทวิตเตอร์สามารถเข้าถึงตำแหน่งที่ตั้งของคุณได้";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "ไม่มีบัญชีทวิตเตอร์ที่กำหนดค่า คุณสามารถเพิ่มหรือสร้างบัญชีทวิตเตอร์ได้ในการตั้งค่า";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "ไม่มีบัญชีทวิตเตอร์ที่กำหนดค่า คุณสามารถสร้างหรือเข้าสู่ระบบบัญชีในแอพทวิตเตอร์ได้";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "ไม่มีบัญชีทวิตเตอร์";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "ไม่สามารถส่งทวีตได้";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%dวิ.";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "ยกเลิก";
-
 "tw__card_compose_character_count" = "เหลืออีก %td ตัวอักขระ";
 
 "tw__card_compose_close_hint" = "แตะสองครั้งเพื่อยกเลิก";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "ปิด";
 
-"tw__composer_placeholder_text" = "กำลังเกิดอะไรขึ้น";
+"tw__composer_placeholder_text" = "มีอะไรเกิดขึ้นบ้าง";
 
 "tw__email_share_detail_message_format" = "รับการอัพเดทและข้อมูลอื่นๆ ได้จาก %@ เมื่อคุณให้สิทธิ์ในการเข้าถึงอีเมลของคุณในบัญชีทวิตเตอร์ @%@";
 

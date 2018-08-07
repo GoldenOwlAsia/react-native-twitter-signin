@@ -18,6 +18,6 @@
         #endif
     #endif
 
-    #import "EXTKeyPathCoding.h"
-    #import "EXTScope.h"
+    #import "../../libextobjc/EXTKeyPathCoding.h"
+    #import "../../libextobjc/EXTScope.h"
 #endif

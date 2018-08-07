@@ -1,8 +1,19 @@
-//
-//  TWTRConstants.h
-//
-//  Copyright (c) 2015 Twitter. All rights reserved.
-//
+/*
+ * Copyright (C) 2017 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 #import <Foundation/Foundation.h>
 
@@ -11,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The NSError domain of errors surfaced by the Twitter SDK.
  */
-FOUNDATION_EXPORT NSString *const TWTRErrorDomain;
+FOUNDATION_EXTERN NSString *const TWTRErrorDomain;
 
 /**
  *  Error codes surfaced by the Twitter SDK.
@@ -24,12 +35,12 @@ typedef NS_ENUM(NSInteger, TWTRErrorCode) {
     TWTRErrorCodeUnknown = -1,
 
     /**
-     *  Authentication has not been set up yet. You must call -[Twitter logInWithCompletion:] or -[Twitter logInGuestWithCompletion:]
+     *  Authentication has not been set up yet. You must call -[TWTRTwitter logInWithCompletion:] or -[TWTRTwitter logInGuestWithCompletion:]
      */
     TWTRErrorCodeNoAuthentication = 0,
 
     /**
-     *  Twitter has not been initialized yet. Call +[Fabric with:@[TwitterKit]] or -[Twitter startWithConsumerKey:consumerSecret:].
+     *  Twitter has not been initialized yet. Call +[Fabric with:@[TwitterKit]] or -[TWTRTwitter startWithConsumerKey:consumerSecret:].
      */
     TWTRErrorCodeNotInitialized = 1,
 
@@ -82,7 +93,7 @@ typedef NS_ENUM(NSInteger, TWTRErrorCode) {
 /**
  *  The NSError domain of errors surfaced by the Twitter SDK during the login operation.
  */
-FOUNDATION_EXPORT NSString *const TWTRLogInErrorDomain;
+FOUNDATION_EXTERN NSString *const TWTRLogInErrorDomain;
 
 /**
  *  Error codes surfaced by the Twitter SDK with the `TWTRLogInErrorDomain` error domain.

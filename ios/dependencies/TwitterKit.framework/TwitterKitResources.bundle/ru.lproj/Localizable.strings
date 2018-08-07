@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Отмена";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Что нового?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Твит не отправлен";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Перейдите в раздел «Настройки iOS» > «Приватность» > «Службы местоположения», чтобы разрешить Твиттеру доступ к данным о местоположении.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Нет настроенных учетных записей Твиттера. Учетную запись Твиттера можно добавить или создать в настройках.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Нет настроенных учетных записей в Твиттере. Для создания учетной записи и входа в нее можно воспользоваться приложением Твиттера.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Нет учетной записи Твиттера";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Не удалось отправить твит.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%dс";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Отмена";
-
 "tw__card_compose_character_count" = "Осталось символов: %td";
 
 "tw__card_compose_close_hint" = "Нажмите дважды, чтобы закрыть редактор.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Закрыть";
 
-"tw__composer_placeholder_text" = "Что происходит?";
+"tw__composer_placeholder_text" = "Что нового?";
 
 "tw__email_share_detail_message_format" = "Вы будете получать обновления и другую информацию от %@, когда вы предоставляете этим приложениям доступ к электронной почте, связанной с вашей учётной записью в Твиттере @%@.";
 

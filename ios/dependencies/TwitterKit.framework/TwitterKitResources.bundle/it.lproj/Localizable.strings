@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Annulla";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Che c'è di nuovo?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet non inviato";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Visita Impostazioni > Privacy > Localizzazione su iOS per permettere a Twitter di accedere alla tua posizione.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Non ci sono account Twitter configurati. Puoi crearne o aggiungerne uno dalle Impostazioni.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nessun account configurato. Usa l'app Twitter per accedere a un account o crearne uno.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nessun account Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Invio del Tweet non riuscito.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%ds";
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Annulla";
 
 "tw__card_compose_character_count" = "%td caratteri rimanenti";
 

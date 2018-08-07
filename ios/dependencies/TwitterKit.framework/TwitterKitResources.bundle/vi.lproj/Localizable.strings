@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Hủy";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Chuyện gì đang xảy ra?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet không gửi";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Hãy truy cập Cài đặt\niOS > Quyền riêng tư > Dịch vụ định vị để cho phép Twitter truy cập vị trí của bạn.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Không có tài khoản Twitter nào được cấu hình. Bạn có thể\nthêm hoặc tạo tài khoản Twitter trong Cài đặt.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Không có tài khoản Twitter nào được cấu hình. Bạn có thể tạo hoặc đăng nhập vào một tài khoản trên ứng dụng Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Không có tài khoản Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet không gửi được.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%dgiây";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Hủy";
-
 "tw__card_compose_character_count" = "%td ký tự còn lại";
 
 "tw__card_compose_close_hint" = "Nhấn đúp để bỏ qua trình soạn.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Đóng";
 
-"tw__composer_placeholder_text" = "Điều gì Đang xảy ra?";
+"tw__composer_placeholder_text" = "Chuyện gì đang xảy ra?";
 
 "tw__email_share_detail_message_format" = "Nhận các cập nhật và thông tin khác từ %@ khi bạn cho phép họ truy cập email trên tài khoản Twitter của mình @%@.";
 

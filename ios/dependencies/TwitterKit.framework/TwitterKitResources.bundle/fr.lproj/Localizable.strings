@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Annuler";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Quoi de neuf ?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet non envoyé";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Veuillez aller dans les Réglages d'iOS > Confidentialité > Service de localisation pour autoriser Twitter à accéder à votre localisation.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Aucun compte Twitter n'est configuré. Vous pouvez ajouter ou créer un compte Twitter dans les Réglages.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Aucun compte Twitter n'est configuré. Vous pouvez créer un compte ou vous connecter à un compte dans l'application Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Pas de compte Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Échec de l'envoi du Tweet.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Annuler";
-
 "tw__card_compose_character_count" = "%td caractères restants";
 
 "tw__card_compose_close_hint" = "Tapez deux fois pour passer le composeur.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Fermer";
 
-"tw__composer_placeholder_text" = "Que se passe-t-il ?";
+"tw__composer_placeholder_text" = "Quoi de neuf ?";
 
 "tw__email_share_detail_message_format" = "Recevez des mises à jour et autres informations de %@ quand vous lui donnez accès à votre email sur votre compte Twitter @%@.";
 

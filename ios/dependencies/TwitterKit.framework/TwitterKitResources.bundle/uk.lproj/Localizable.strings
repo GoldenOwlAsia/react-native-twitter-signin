@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Скасувати";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Що відбувається?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Твіт не надіслано";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "В iOS виберіть «Параметри» > «Приватність» > «Служба локації», щоб дозволити Твіттеру отримувати дані про ваше місцезнаходження.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Профіль Твіттера не налаштовано. Ви можете додати або створити профіль Твіттера в Налаштуваннях.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Профіль Твіттера не налаштовано. Ви можете створити профіль або ввійти в наявний у додатку Твіттера.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Профіль Твіттера не вказано";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Не вдалося надіслати твіт.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%d с";
 
 "TIME_SHORT_SECOND_FORMAT" = "%d с";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Скасувати";
 
 "tw__card_compose_character_count" = "Лишилося символів: %td";
 

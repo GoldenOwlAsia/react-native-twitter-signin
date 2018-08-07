@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/react-native-twitter-signin.svg)](https://badge.fury.io/js/react-native-twitter-signin)
 
-Note: this guide is for TwitterKit 3.0 and ReactNatiee 0.47+.
+Note: this guide is for TwitterKit 3.3 and ReactNatiee 0.56+.
 
 # React Native : Twitter Signin
 This package provides necessary code to get your social sign in using Twitter works with least pain possible.
@@ -20,7 +20,7 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
  - Remember to set a Callback Url, whatever will work
  - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
-From Twitter Kit 3.0, Fabric is no longer required.
+From Twitter Kit 3.3, Fabric is no longer required.
 
 ## Setup
 
@@ -31,7 +31,7 @@ Firstly, install the npm package:
 #### iOS
 
  - Link RNTwitterSignIn.xcodeproj by running `react-native link react-native-twitter-signin`
- - Download TwitterKit 3.0 from here https://ton.twimg.com/syndication/twitterkit/ios/3.0.3-update/TwitterKitManual.zip
+ - Download TwitterKit 3.3 from here https://ton.twimg.com/syndication/twitterkit/ios/3.3.0/Twitter-Kit-iOS.zip
  - Add TwitterKit, TwitterCore and 2 other bundle files into your root folder in Xcode
  - In `Build Phases → Link Binary with libraries` add `Twitter.framework` and `LibRBTwitterSignin.a`
  - Configure Info.Plist like below, replace `<consumerKey>` with your own key:
@@ -53,7 +53,7 @@ Firstly, install the npm package:
     <string>twitterauth</string>
 </array>
 ```
-  - Modify AppDelegate.m to `#import <TwitterKit/TwitterKit.h>` and handle openUrl
+  - Modify AppDelegate.m to `#import <TwitterKit/TWTRKit.h>` and handle openUrl
 ````
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
   return [[Twitter sharedInstance] application:app openURL:url options:options];

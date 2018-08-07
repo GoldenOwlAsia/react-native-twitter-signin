@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Cancel·la";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Què passa?";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "El tuit no s'ha enviat";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Vés a Configuració de l'iOS > Privacitat > Serveis d'ubicació per permetre que el Twitter accedeixi a la teva ubicació.";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "No hi ha cap compte de Twitter configurat. Pots afegir o crear un compte de Twitter a la configuració.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "No hi ha cap compte del Twitter configurat. Pots crear un compte o iniciar-hi sessió des de l'aplicació del Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "No hi ha cap compte de Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "El tuit no s'ha pogut enviar.";
@@ -44,8 +50,6 @@
 
 "TIME_SHORT_SECOND_FORMAT" = "%ds";
 
-"TSEUI_CANCEL_ACTION_LABEL" = "Cancel·la";
-
 "tw__card_compose_character_count" = "queden %td caràcters";
 
 "tw__card_compose_close_hint" = "Toc doble per tancar l'editor.";
@@ -64,7 +68,7 @@
 
 "tw__close_button" = "Tanca";
 
-"tw__composer_placeholder_text" = "Què passa ara mateix?";
+"tw__composer_placeholder_text" = "Què passa?";
 
 "tw__email_share_detail_message_format" = "Rep actualitzacions i altres dades de %@ quan els permetis accedir al correu electrònic al compte de Twitter @%@.";
 

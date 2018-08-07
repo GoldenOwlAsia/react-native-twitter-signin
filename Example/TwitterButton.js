@@ -1,20 +1,20 @@
 import React, { Component } from "react"
 import {
   AppRegistry,
+  Button,
   StyleSheet,
   Text,
   View,
   Alert,
   NativeModules,
   TouchableOpacity } from "react-native"
-import Icon from "react-native-vector-icons/Ionicons"
 
 const { RNTwitterSignIn } = NativeModules
 
 const Constants = {
   //Dev Parse keys
-  TWITTER_COMSUMER_KEY: "Mp0taY9OcO8UhvacuTPU73Xbp",
-  TWITTER_CONSUMER_SECRET: "HWAhDOOUFYsuL4H4w445eEta2lzpxRBN07zxuFZCo5UwbD9RqG"
+  TWITTER_COMSUMER_KEY: "qWPj1TXbreMX1SsDvdiQTaF7Y",
+  TWITTER_CONSUMER_SECRET: "4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z"
 }
 
 export default class TwitterButton extends Component {
@@ -51,21 +51,22 @@ export default class TwitterButton extends Component {
   render() {
     const { isLoggedIn } = this.state
     return (
-      <View style={{ flex: 1 }}>
+      <View style={this.props.style}>
         {isLoggedIn
           ? <TouchableOpacity onPress={this.handleLogout}>
               <Text>Log out</Text>
             </TouchableOpacity>
-          : <Icon.Button name="logo-twitter" size={32} color="white" style={styles.icon} onPress={this._twitterSignIn}>
-              Login with Twitter
-            </Icon.Button>}
+          : <Button name="logo-twitter" style={styles.button} onPress={this._twitterSignIn} title="Login with Twitter">
+            </Button>}
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  icon: {
+  button: {
+    backgroundColor: '#1b95e0',
+    color: 'white',
     width: 200,
     height: 50
   }

@@ -1,3 +1,7 @@
+"CANCEL_ACTION_LABEL" = "Ακύρωση";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Τι συμβαίνει;";
+
 "COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Το Tweet δεν εστάλη";
 
 "LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Μεταβείτε στις επιλογές Ρυθμίσεις iOS > Απόρρητο > Υπηρεσίες τοποθεσίας, για να επιτρέψετε στο Twitter την πρόσβαση στην τοποθεσία σας";
@@ -22,6 +26,8 @@
 
 "SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Δεν υπάρχουν διαμορφωμένοι λογαριασμοί Twitter. Μπορείτε να προσθέσετε ή να δημιουργήσετε έναν λογαριασμό Twitter στις Ρυθμίσεις.";
 
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Δεν υπάρχουν διαμορφωμένοι λογαριασμοί Twitter. Μπορείτε να δημιουργήσετε ή να πραγματοποιήσετε είσοδο σε έναν λογαριασμό στην εφαρμογή του Twitter.";
+
 "SHARE_EXT_NO_ACCOUNTS_TITLE" = "Κανένας λογαριασμός Twitter";
 
 "SHARE_EXT_TWEET_FAILED_TITLE" = "Δεν ήταν δυνατή η αποστολή του Tweet.";
@@ -43,8 +49,6 @@
 "TIME_SHORT_SECONDS_FORMAT" = "%dδ";
 
 "TIME_SHORT_SECOND_FORMAT" = "%dδ";
-
-"TSEUI_CANCEL_ACTION_LABEL" = "Ακύρωση";
 
 "tw__card_compose_character_count" = "απομένουν %td χαρακτήρες";
 

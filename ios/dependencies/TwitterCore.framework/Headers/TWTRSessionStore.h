@@ -1,9 +1,19 @@
-//
-//  TWTRSessionStore.h
-//  TwitterCore
-//
-//  Copyright (c) 2015 Twitter Inc. All rights reserved.
-//
+/*
+ * Copyright (C) 2017 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 @class TWTRAuthConfig;
 @class TWTRGuestSession;
@@ -120,6 +130,11 @@ typedef void (^TWTRSessionStoreDeleteCompletion)(id<TWTRAuthSession> _Nullable s
  */
 - (NSArray *)existingUserSessions;
 
+/**
+ *  Returns YES if there are existing user sessions.
+ *
+ *  @note This is a blocking call.
+ */
 - (BOOL)hasLoggedInUsers;
 
 /**
@@ -210,6 +225,20 @@ typedef void (^TWTRSessionGuestLogInCompletion)(TWTRGuestSession *_Nullable gues
  */
 - (void)reloadSessionStore;
 
+/**
+ *  Sets a local string which can be used to verify the auth token using
+ *  isValidOauthToken:
+ */
+- (void)saveOauthToken:(NSString *)token;
+
+/**
+ *  If saveOauthToken is called then this will compare the set to the token passed by the token parameter.
+ *  This is used to verify the token generated from the oauth/request_token request after a URL has been passed
+ *  back from web authenticatoin.
+ *
+ *  Returns YES is the token string matches the internal OAuth token.
+ */
+- (BOOL)isValidOauthToken:(NSString *)token;
 @end
 
 NS_ASSUME_NONNULL_END
