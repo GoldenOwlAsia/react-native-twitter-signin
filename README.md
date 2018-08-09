@@ -20,6 +20,9 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
  - Remember to set a Callback Url, whatever will work
  - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
+Here is how callbacks would look like:
+![callbacks](https://github.com/GoldenOwlAsia/react-native-twitter-signin/blob/master/Example/img/callbacks.png?raw=true)
+
 From Twitter Kit 3.3, Fabric is no longer required.
 
 ## Setup
@@ -105,6 +108,7 @@ Keeps in mind that all the configure is for your build tools to recognise the fi
 
  - See the `Example` project.
 
+![Sample](https://github.com/GoldenOwlAsia/react-native-twitter-signin/blob/master/Example/img/android.png?raw=true)
 
 
 
