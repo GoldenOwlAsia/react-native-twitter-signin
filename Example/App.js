@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Text,
   View,
-  NativeModules,
 } from 'react-native';
 import TwitterButton from './TwitterButton';
 
