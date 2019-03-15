@@ -8,4 +8,4 @@ if (__DEV__ && !TwitterLogin) {
   );
 }
 
-export default TwitterLogin;
+export { TwitterLogin };
