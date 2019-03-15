@@ -1,11 +1,6 @@
 import * as React from "react";
 import { StyleProp, ViewProps, ViewStyle } from "react-native";
 
-export interface ConfigureParams {
-  TWITTER_COMSUMER_KEY: string;
-  TWITTER_CONSUMER_SECRET: string;
-}
-
 export interface User {
   authToken?: string;
   authTokenSecret?: string;
@@ -16,7 +11,7 @@ export interface User {
 }
 
 export namespace TwitterLogin {
-  function init(params: ConfigureParams): Promise<object>;
+  function init(TWITTER_COMSUMER_KEY: string, TWITTER_CONSUMER_SECRET: string): Promise<object>;
   function logIn(): Promise<User>;
   function logOut(): void;
 }
