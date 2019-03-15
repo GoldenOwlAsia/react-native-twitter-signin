@@ -1,13 +1,19 @@
 {
-  "dependencies": {},
-  "peerDependencies": {
-  },
-  "deprecated": false,
+  "name": "react-native-login-twitter",
   "description": "Social Signin with Twitter",
-  "engines": {
-    "node": ">=4.0.0"
+  "version": "2.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": {
+    "name": "justjavac",
+    "email": "justjavac@gmail.com",
+    "url": "https://github.com/justjavac"
   },
-  "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
+  "contributors": [
+    "justjavac (https://github.com/justjavac)",
+    "Nguyen The Thang (https://github.com/thethanghn)"
+  ],
   "keywords": [
     "react",
     "react-native",
@@ -18,11 +24,18 @@
     "social signin",
     "authentication"
   ],
-  "license": "MIT",
-  "name": "react-native-twitter-signin",
+  "homepage": "https://github.com/clockin/react-native-login-twitter.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GoldenOwlAsia/react-native-twitter-signin"
+    "url": "https://github.com/clockin/react-native-twitter-signin"
   },
-  "version": "1.1.0"
+  "bugs": {
+    "url": "https://github.com/clockin/react-native-twitter-signin/issues"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": ">=15.4.0 || ^16.0.0-alpha",
+    "react-native": ">=0.40"
+  }
 }
