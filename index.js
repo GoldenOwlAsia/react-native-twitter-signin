@@ -1,11 +1,11 @@
 import { NativeModules } from "react-native";
 
-const { TwitterLogin } = NativeModules;
+const { RNTwitterSignIn } = NativeModules;
 
-if (__DEV__ && !TwitterLogin) {
+if (__DEV__ && !RNTwitterSignIn) {
   console.error(
     "RN TwitterLogin native module is not correctly linked. Please read the readme, setup and troubleshooting instructions carefully or try manual linking."
   );
 }
 
-export { TwitterLogin };
+export { RNTwitterSignIn as TwitterLogin };
