@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.source_files  = "ios/*.{h,m}"
 
   s.dependency "React"
-  s.dependency "TwitterKit", "~> 3.3"
+  s.dependency "TwitterKit5"
 end
