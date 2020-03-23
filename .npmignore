@@ -27,6 +27,7 @@ DerivedData
 # Node
 node_modules
 
+.git
 
 ### Gradle ###
 .gradle
