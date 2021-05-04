@@ -3300,8 +3300,8 @@ merge-stream@^1.0.1:
     readable-stream "^2.0.1"
 
 merge@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
 
 metro-babel-register@0.38.4, metro-babel-register@^0.38.1:
   version "0.38.4"
@@ -4121,12 +4121,9 @@ react-is@^16.4.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
 react-native-twitter-signin@../.:
-  version "1.0.3"
-  dependencies:
-    react "^16.4.2"
-    react-native "^0.56.0"
+  version "1.1.0"
 
-react-native@0.56.0, react-native@^0.56.0:
+react-native@0.56.0:
   version "0.56.0"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.56.0.tgz#66686f781ec39a44376aadd4bbc55c8573ab61e5"
   dependencies:
@@ -4212,15 +4209,6 @@ react-transform-hmr@^1.0.4:
 react@16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-
-react@^16.4.2:
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
