@@ -1,13 +1,7 @@
 {
-  "dependencies": {},
-  "peerDependencies": {
-  },
-  "deprecated": false,
+  "name": "@react-native-twitter-signin/twitter-signin",
+  "version": "1.1.0",
   "description": "Social Signin with Twitter",
-  "engines": {
-    "node": ">=4.0.0"
-  },
-  "homepage": "https://github.com/GoldenOwlAsia/react-native-twitter-signin.git",
   "keywords": [
     "react",
     "react-native",
@@ -18,11 +12,19 @@
     "social signin",
     "authentication"
   ],
-  "license": "MIT",
-  "name": "react-native-twitter-signin",
+  "homepage": "https://github.com/react-native-twitter-signin/twitter-signin.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GoldenOwlAsia/react-native-twitter-signin"
+    "url": "https://github.com/react-native-twitter-signin/twitter-signin"
   },
-  "version": "1.1.0"
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "deprecated": false
 }
