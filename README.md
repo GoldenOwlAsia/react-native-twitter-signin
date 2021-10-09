@@ -21,7 +21,7 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
  - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
 Here is how callbacks would look like:
-![callbacks](https://github.com/GoldenOwlAsia/react-native-twitter-signin/blob/master/Example/img/callbacks.png?raw=true)
+![callbacks](https://github.com/twitter-signin/twitter-signin/blob/master/Example/img/callbacks.png?raw=true)
 
 From Twitter Kit 3.3, Fabric is no longer required.
 
@@ -29,11 +29,12 @@ From Twitter Kit 3.3, Fabric is no longer required.
 
 Firstly, install the npm package:
 
-    npm install react-native-twitter-signin --save
+    npm install @react-native-twitter-signin/twitter-signin --save
 
 ### iOS
 
- - Link RNTwitterSignIn.xcodeproj by running `react-native link react-native-twitter-signin`
+
+ - run `cd ios && pod install`
  - Configure Info.Plist like below, replace `<consumerKey>` with your own key:
 
 ```
@@ -69,7 +70,7 @@ Firstly, install the npm package:
  // Podfile
  target 'MyApp' do
    # use_frameworks!
-   pod 'TwitterKit', '~> 3.3.0'
+   pod 'TwitterKit5', '~> 3.3.0'
  end
  ```
  - Run `pod install`
