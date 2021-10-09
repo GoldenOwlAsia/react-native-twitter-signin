@@ -1,4 +1,4 @@
-package com.goldenowl.twittersignin;
+package com.rntwittersignin.twittersignin;
 
 import android.app.Activity;
 import android.content.Intent;

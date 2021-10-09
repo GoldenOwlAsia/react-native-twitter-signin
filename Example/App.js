@@ -1,30 +1,19 @@
-
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  NativeModules,
-} from 'react-native';
+import * as React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import TwitterButton from './TwitterButton';
 
-export default class Example extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <TwitterButton style={styles.button} />
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+const Example = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>Welcome to React Native!</Text>
+      <TwitterButton style={styles.button} />
+      <Text style={styles.instructions}>
+        Press Cmd+R to reload,{'\n'}
+        Cmd+D or shake for dev menu
+      </Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -48,6 +37,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 100,
-    height: 30
-  }
+    height: 30,
+  },
 });
+
+export default Example;

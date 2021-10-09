@@ -6,7 +6,7 @@
 //  Updated at 12/17 by Maurilio Campos.
 //
 
-package com.goldenowl.twittersignin;
+package com.rntwittersignin.twittersignin;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
